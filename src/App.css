@@ -1,3 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  color: #1d4ed8;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +58,38 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Custom styles for the About section */
+#about {
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#about h2 {
+  font-family: 'Montserrat', sans-serif;
+  color: #6b46c1;
+}
+
+#about p {
+  font-family: 'Roboto', sans-serif;
+  color: #4a5568;
+}
+
+#about ul {
+  list-style: none;
+  padding: 0;
+}
+
+#about ul li {
+  display: flex;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  color: #4a5568;
+}
+
+#about ul li span {
+  margin-right: 0.5rem;
 }

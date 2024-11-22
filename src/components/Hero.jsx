@@ -1,20 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Hero = () => {
   return (
-    <nav className="fixed top-0 left-0 w-full bg-gray-900 text-white shadow-lg z-50">
-      <div className="container mx-auto flex justify-between items-center p-4">
-        <h1 className="text-xl font-bold">My Portfolio</h1>
-        <ul className="flex space-x-4">
-          <li><Link to="/" className="hover:text-blue-400">Home</Link></li>
-          <li><Link to="/about" className="hover:text-blue-400">About</Link></li>
-          <li><Link to="/projects" className="hover:text-blue-400">Projects</Link></li>
-          <li><Link to="/contact" className="hover:text-blue-400">Contact</Link></li>
-        </ul>
+    <section id="hero" className="pt-20 h-screen bg-gradient-to-r from-purple-500 to-indigo-500 text-white flex items-center justify-center">
+      <div className="text-center">
+        <h1 className="text-5xl font-bold">Hi, I'm Justin</h1>
+        <p className="mt-4 text-xl">A Senior Software Engineer crafting elegant solutions.</p>
+        <a href="#about" className="mt-6 inline-block bg-yellow-500 px-6 py-3 rounded-full text-white text-lg font-semibold hover:bg-yellow-600">
+          Learn More About Me
+        </a>
       </div>
-    </nav>
+    </section>
   );
 };
 
-export default Navbar;
+export default Hero;
