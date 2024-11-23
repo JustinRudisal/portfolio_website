@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
 
 const Navbar = () => {
   return (
@@ -7,10 +7,26 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center p-4">
         <h1 className="text-2xl font-bold">My Portfolio</h1>
         <ul className="flex space-x-4">
-          <li><Link to="/" className="hover:text-yellow-400">Home</Link></li>
-          <li><Link to="/about" className="hover:text-yellow-400">About</Link></li>
-          <li><Link to="/projects" className="hover:text-yellow-400">Projects</Link></li>
-          <li><Link to="/contact" className="hover:text-yellow-400">Contact</Link></li>
+          <li>
+            <ScrollLink to="hero" smooth={true} duration={1000} className="hover:text-yellow-400 cursor-pointer">
+              Home
+            </ScrollLink>
+          </li>
+          <li>
+            <ScrollLink to="about" smooth={true} duration={1000} className="hover:text-yellow-400 cursor-pointer">
+              About
+            </ScrollLink>
+          </li>
+          <li>
+            <ScrollLink to="projects" smooth={true} duration={1000} className="hover:text-yellow-400 cursor-pointer">
+              Projects
+            </ScrollLink>
+          </li>
+          <li>
+            <ScrollLink to="contact" smooth={true} duration={1000} className="hover:text-yellow-400 cursor-pointer">
+              Contact
+            </ScrollLink>
+          </li>
         </ul>
       </div>
     </nav>

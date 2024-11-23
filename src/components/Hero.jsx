@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
 import { Typewriter } from 'react-simple-typewriter';
 
 const Hero = () => {
@@ -24,12 +24,14 @@ const Hero = () => {
           </span>
         </h1>
         <p className="mt-4 text-xl">Crafting elegant solutions one line of code at a time.</p>
-        <Link
-          to="/about"
-          className="mt-6 inline-block bg-yellow-500 px-6 py-3 rounded-full text-white text-lg font-semibold hover:bg-yellow-600"
+        <ScrollLink
+          to="about"
+          smooth={true}
+          duration={1000}
+          className="mt-6 inline-block bg-yellow-500 px-6 py-3 rounded-full text-white text-lg font-semibold hover:bg-yellow-600 cursor-pointer"
         >
           Learn More About Me
-        </Link>
+        </ScrollLink>
       </div>
     </section>
   );

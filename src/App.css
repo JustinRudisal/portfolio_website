@@ -8,8 +8,8 @@ html {
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #f0f4f8;
-  color: #333;
+  background: linear-gradient(to right, #6b46c1, #1d4ed8); /* Purple background */
+  color: #fff; /* Set default text color to white for readability */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -17,7 +17,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  color: #1d4ed8;
+  color: #ffd700; /* Gold color for links */
   text-decoration: none;
 }
 
@@ -66,7 +66,6 @@ a:hover {
 
 /* Custom styles for the About section */
 #about {
-  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
   padding: 2rem;
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -74,12 +73,12 @@ a:hover {
 
 #about h2 {
   font-family: 'Montserrat', sans-serif;
-  color: #6b46c1;
+  color: #ffd700; /* Gold color for headings */
 }
 
 #about p {
   font-family: 'Roboto', sans-serif;
-  color: #4a5568;
+  color: #fff; /* White color for text */
 }
 
 #about ul {
@@ -91,9 +90,10 @@ a:hover {
   display: flex;
   align-items: center;
   font-family: 'Roboto', sans-serif;
-  color: #4a5568;
+  color: #fff; /* White color for text */
 }
 
 #about ul li span {
   margin-right: 0.5rem;
+  color: #ffd700; /* Gold color for icons */
 }
