@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ShareBar from '../components/ShareBar';
+import NewsletterSignup from '../components/NewsletterSignup';
 
 const BlogPost_NLPIdentity = () => {
   return (
@@ -158,6 +160,18 @@ const BlogPost_NLPIdentity = () => {
               LinkedIn
             </a>.
           </p>
+
+          <hr className="border-surface-light/20 my-14" />
+
+          <ShareBar
+            title="Applying NLP and AI Agents to Identity and Access Management"
+            url="https://justinrudisal.com/blog/nlp-identity-access-management"
+          />
+
+          <div className="mt-10">
+            <NewsletterSignup />
+          </div>
+
         </div>
       </div>
     </article>

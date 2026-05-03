@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Disclosure from '../components/Disclosure';
+import ShareBar from '../components/ShareBar';
+import NewsletterSignup from '../components/NewsletterSignup';
 
 const BlogPost_AIAssistedEngineering = () => {
   return (
@@ -774,6 +776,17 @@ This file makes the AI the forcing function.`}
             Pick your experience level. Install the config. Use it for a week before deciding whether
             the friction is worth it. I think you will find it catches things you would have missed.
           </p>
+
+          <hr className="border-surface-light/20 my-14" />
+
+          <ShareBar
+            title="AI-Assisted Engineering: A Practical Guide to Using AI Coding Tools Without Losing Your Edge"
+            url="https://justinrudisal.com/blog/ai-assisted-engineering"
+          />
+
+          <div className="mt-10">
+            <NewsletterSignup />
+          </div>
 
         </div>
       </div>
