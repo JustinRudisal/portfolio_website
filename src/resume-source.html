@@ -10,17 +10,17 @@
     body {
       font-family: Calibri, 'Segoe UI', Arial, sans-serif;
       font-size: 11pt;
-      line-height: 1.3;
+      line-height: 1.25;
       color: #1a1a1a;
       max-width: 8.5in;
       margin: 0 auto;
-      padding: 0.6in 0.75in;
+      padding: 0.5in 0.75in;
     }
 
     @media print {
       body { padding: 0; margin: 0; }
       .no-print { display: none; }
-      @page { margin: 0.5in 0.6in; size: letter; }
+      @page { margin: 0.35in 0.6in; size: letter; }
     }
 
     h1 {
@@ -35,7 +35,7 @@
       text-align: center;
       font-size: 10pt;
       color: #333;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
 
     .contact a {
@@ -49,8 +49,8 @@
       color: #1a5276;
       border-bottom: 1.5px solid #1a5276;
       padding-bottom: 2px;
-      margin-top: 12px;
-      margin-bottom: 6px;
+      margin-top: 10px;
+      margin-bottom: 4px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -61,7 +61,7 @@
     }
 
     .job {
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       break-inside: avoid;
     }
 
@@ -98,18 +98,6 @@
     li {
       margin-bottom: 2px;
       font-size: 10.5pt;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 2px 8px;
-      font-size: 10.5pt;
-    }
-
-    .skills-label {
-      font-weight: bold;
-      color: #333;
     }
 
     .edu-entry {
@@ -163,41 +151,23 @@
 
 <h1>Justin Rudisal</h1>
 <div class="contact">
-  <a href="https://www.linkedin.com/in/justinrudisal/">LinkedIn</a> | <a href="https://github.com/JustinRudisal">GitHub</a> | <a href="https://justinrudisal.com">justinrudisal.com</a>
+  Orlando, FL | <a href="https://www.linkedin.com/in/justinrudisal/">LinkedIn</a> | <a href="https://github.com/JustinRudisal">GitHub</a> | <a href="https://justinrudisal.com">justinrudisal.com</a> | <a href="https://justinrudisal.com/#contact">Contact</a>
 </div>
 
 <h2>Professional Summary</h2>
 <p class="summary">
-  Senior Software Engineer with 10+ years of experience across financial services and entertainment, specializing in Identity and Access Management at enterprise scale. Currently building and maintaining IAM platforms serving tens of thousands of users at Disney, with deep expertise in Okta, OAuth2, SAML, SCIM, and AWS serverless architecture. Pursuing an M.S. in Artificial Intelligence, actively bridging AI/ML with identity security through production tooling and graduate research. Track record of delivering measurable improvements: 80%+ reduction in system processing time, AI-powered developer tools adopted for production use, and enterprise architecture proposals presented to and implemented at EVP-level direction.
+  Senior Software Engineer with 10+ years of experience specializing in Identity and Access Management at enterprise scale. Currently building IAM platforms serving tens of thousands of users at Disney with deep expertise in Okta, OAuth 2.0, SAML, and AWS serverless architecture. Pursuing an M.S. in Artificial Intelligence (4.0 GPA).
 </p>
 
 <h2>Technical Skills</h2>
-<p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>Languages:</strong> Java, Python, JavaScript, TypeScript, Node.js, SQL, HTML, CSS</p>
-<p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>Backend:</strong> Spring Boot, Spring Data JPA, Hibernate 6, FastAPI, Flask, Express</p>
-<p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>Frontend:</strong> Angular, React, Angular Material, RxJS</p>
+<p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>Languages:</strong> Java, Python, JavaScript, TypeScript, SQL</p>
+<p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>Backend:</strong> Spring Boot, Spring Data JPA, Hibernate 6, FastAPI, Flask, Node.js, Express</p>
+<p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>Frontend:</strong> Angular, React, Angular Material, RxJS, HTML, CSS</p>
 <p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>Cloud (AWS):</strong> Lambda, API Gateway, DynamoDB, SQS, EventBridge, Step Functions, ECS/Fargate, S3, Secrets Manager, CloudWatch, Bedrock</p>
-<p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>IAM/Security:</strong> Okta, Active Directory, SailPoint, PingFederate, OAuth2, OIDC, SAML, SCIM, SSF, JWT/JWKS, MFA</p>
-<p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>AI/ML:</strong> Claude (Opus/Sonnet via AWS Bedrock), extended thinking, agentic tool-use, NLP, anomaly detection</p>
+<p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>IAM/Security:</strong> Okta, Active Directory, SailPoint, PingFederate, OAuth 2.0, OpenID Connect (OIDC), SAML, SCIM, Shared Signals Framework (SSF), JWT/JWKS, MFA</p>
+<p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>AI/ML:</strong> LLM integration (AWS Bedrock), prompt engineering, agentic architectures, Retrieval-Augmented Generation (RAG), Natural Language Processing (NLP), anomaly detection, classification</p>
 <p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>DevOps/Tools:</strong> GitLab CI/CD, Docker, SAM, Splunk, Grafana, New Relic, Wiz.io, Snyk, Jira, Confluence</p>
-<p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>Practices:</strong> Agile (Scrum), CI/CD, threat modeling, secure SDLC, event-driven architecture, zero-trust design</p>
-
-<h2>Education</h2>
-
-<div class="edu-entry">
-  <div>
-    <span class="edu-degree">M.S. Computer Science, Artificial Intelligence Specialization</span><br>
-    <span class="edu-school">Florida Atlantic University</span> - 4.0 GPA
-  </div>
-  <span class="edu-date">In Progress (Expected 2026-2027)</span>
-</div>
-
-<div class="edu-entry">
-  <div>
-    <span class="edu-degree">B.S. Computer Science</span><br>
-    <span class="edu-school">University of Central Florida</span>
-  </div>
-  <span class="edu-date">Dec 2019</span>
-</div>
+<p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>Practices:</strong> Agile (Scrum), threat modeling, secure SDLC, event-driven architecture, zero-trust design</p>
 
 <h2>Professional Experience</h2>
 
@@ -208,14 +178,12 @@
   </div>
   <div class="job-company">The Walt Disney Company, Enterprise Technology - Orlando, FL</div>
   <ul>
-    <li>Expanded from subject matter expert on a single platform to key contributor across the entire Identity Security Engineering ecosystem, owning and maintaining multiple production systems</li>
     <li>Designed, presented, and implemented a platform architecture overhaul that separated identity and access management into independent services with event-driven communication. Personally drove buy-in from teams up to EVP level</li>
     <li>Built event-driven Shared Signals Framework handling SCIM, CAEP, and RISC events in JWT format with multi-issuer authentication</li>
     <li>Led security incident response escalated to CISO level: analyzed production data, designed multi-option remediation plan, and presented executive brief to senior leadership</li>
-    <li>Built AI-powered code review tool using Claude on AWS Bedrock with agentic tool-use, extended thinking, and a 4-phase review strategy. 100% test coverage, adopted by the team for production use</li>
-    <li>Created release documentation automation tool integrating Jira, GitLab, ServiceNow, and Claude AI with Okta SSO and async job processing, automating change request creation. Adopted by the team for production releases</li>
+    <li>Identified review bottleneck and built an AI-powered merge request review tool using Claude on AWS Bedrock, cutting review cycles from multiple days to under one hour and reducing post-deployment defects to zero. Adopted across 30+ repositories within IAM</li>
+    <li>Built a release automation platform during an internal hackathon, integrating Jira, GitLab, ServiceNow, and Confluence APIs with Claude AI to automate documentation and change management. Reduced a multi-day manual release process to minutes, adopted as the team standard</li>
     <li>Provided technical leadership during critical identity platform migration: built dashboards, alerting, and incident triage for production cutover</li>
-    <li>Recognized as team's primary AI strategy resource. Participated in vendor evaluation calls with VP-level leadership</li>
   </ul>
 </div>
 
@@ -229,11 +197,9 @@
     <li>Sole engineer maintaining an enterprise identity platform serving 70,000+ external users (vendors, affiliates, contractors) through multiple organizational restructures without service disruption</li>
     <li>Achieved 80%+ reduction in API processing time through query optimization</li>
     <li>Delivered first automated daytime production release for a critical identity application, reducing release time from hours to 14 minutes</li>
-    <li>Built nightly batch sync processing 76,000+ user profiles with rate limiting, concurrent execution, and 100% test coverage</li>
-    <li>Led migration from Java 11 to Java 17 and Spring Boot 2 to Spring Boot 3 across the platform ecosystem</li>
-    <li>Implemented self-service password reset transition, significantly reducing help-desk ticket volume</li>
-    <li>Developed and maintained Java Spring Boot APIs, Node.js Lambda functions, Angular frontends, and Python serverless services orchestrated through AWS</li>
-    <li>Trained and onboarded multiple new engineers. Cited as team subject matter expert in every annual review from FY22 through FY25</li>
+    <li>Planned and executed migration of a critical identity application from Java 11 to 21 and Spring Boot 2 to 3, resolving dependency vulnerabilities and restoring the platform to security compliance</li>
+    <li>Key contributor in enterprise-wide migration from PingFederate to Okta self-service, transitioning password management and MFA enrollment processes across internal identity tooling</li>
+    <li>Onboarded 8 engineers ranging from new grad to lead/staff level and served as informal mentor to 2 junior engineers</li>
   </ul>
 </div>
 
@@ -247,7 +213,6 @@
     <li>Promoted based on technical contributions and automation leadership</li>
     <li>Supported and enhanced SWIFT infrastructure handling millions of dollars in daily transaction throughput</li>
     <li>Led automation testing initiative using Selenium and Cucumber, establishing regression test coverage for critical payment flows</li>
-    <li>Delivered features through full SDLC and CI/CD within a globally distributed Agile team</li>
   </ul>
 </div>
 
@@ -274,21 +239,49 @@
   </ul>
 </div>
 
+<h2>Education</h2>
+
+<div class="edu-entry">
+  <div>
+    <span class="edu-degree">M.S. Computer Science, Artificial Intelligence Specialization</span><br>
+    <span class="edu-school">Florida Atlantic University</span> - 4.0 GPA
+  </div>
+  <span class="edu-date">In Progress (Expected 2026-2027)</span>
+</div>
+
+<div class="edu-entry">
+  <div>
+    <span class="edu-degree">B.S. Computer Science</span><br>
+    <span class="edu-school">University of Central Florida</span>
+  </div>
+  <span class="edu-date">Dec 2019</span>
+</div>
+
 <h2>Selected Projects</h2>
 
 <div class="job">
   <div class="job-header">
-    <span class="job-title">Naive Bayes Classification for IAM Anomaly Detection</span>
+    <span class="job-title"><a href="https://justinrudisal.com">justinrudisal.com</a> | <a href="https://github.com/JustinRudisal/portfolio_website">GitHub</a></span>
+    <span class="job-dates">Personal Project</span>
+  </div>
+  <ul>
+    <li>Portfolio site featuring blog, contact form (EmailJS), newsletter integration (Buttondown), responsive design, and security-hardened Cloudflare deployment with automated PDF resume generation</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-header">
+    <span class="job-title">Naive Bayes Classification for IAM Anomaly Detection | <a href="https://drive.google.com/file/d/1FVEgdP66-QC6SE3CocZBlqovyw-NZQc3/view?usp=drive_link">Paper</a> | <a href="https://github.com/JustinRudisal/Naive-Bayes-Classification-for-Identity-and-Access-Management-Anomaly-Detection">GitHub</a></span>
     <span class="job-dates">Academic Research</span>
   </div>
   <ul>
-    <li>Built ML pipeline applying Naive Bayes classification to detect anomalous access patterns in IAM systems with synthetic data generation, hyperparameter tuning, and k-fold cross-validation</li>
+    <li>Built ML pipeline applying Naive Bayes classification to detect anomalous access patterns in IAM/SSO systems. Achieved 98.57% accuracy and 82.22% precision with synthetic data generation, hyperparameter tuning, and k-fold cross-validation</li>
   </ul>
 </div>
 
 <h2>Additional</h2>
 <ul>
-  <li>Founding member of Bi+ Board and Pride Council member at JPMorgan Chase. Active member of Pride BERG at Disney. Advocate for accessibility (WCAG 2.1 AA) and inclusive language</li>
+  <li>Founding member of the Bi+ Board and member of the Pride Council at JPMorgan Chase. Active member of Pride BERG at Disney. Advocate for accessibility (WCAG 2.1 AA) and inclusive language</li>
 </ul>
 
 </body>
