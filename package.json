@@ -2,6 +2,7 @@
   "name": "portfolio_website",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@astrojs/react": "^5.0.4",
     "@emailjs/browser": "^4.4.1",
@@ -13,10 +14,12 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "resume": "node scripts/generate-resume-pdf.js"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.18",
+    "puppeteer": "^24.42.0",
     "tailwindcss": "^4.1.18"
   }
 }

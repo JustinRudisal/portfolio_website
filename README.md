@@ -27,9 +27,10 @@ src/
   layouts/        BaseLayout and BlogLayout
   pages/          File-based routing (index.astro, blog/*.astro)
   styles/         Global CSS with Tailwind theme tokens
+  resume-source.html  Editable HTML resume (export to PDF for deployment)
 public/
   _headers        Security headers for Cloudflare Pages
-  resume.html     ATS-friendly resume (print to PDF)
+  resume.pdf      ATS-friendly resume
 ```
 
 ## Security
@@ -66,7 +67,7 @@ Opens at `http://localhost:4321`.
 npm run build
 ```
 
-Output goes to `dist/`. The `_headers` file and `resume.html` are copied from `public/` automatically.
+Output goes to `dist/`. The `_headers` file and `resume.pdf` are copied from `public/` automatically.
 
 ## License
 
