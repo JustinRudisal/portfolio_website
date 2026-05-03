@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 import { Typewriter } from 'react-simple-typewriter';
-import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
@@ -25,12 +24,7 @@ const Hero = () => {
         aria-hidden="true"
       />
 
-      <motion.div
-        className="relative z-10 text-center px-6 max-w-4xl"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-      >
+      <div className="relative z-10 text-center px-6 max-w-4xl animate-[fadeInUp_0.8s_ease-out]">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-text-primary mb-4 leading-tight">
           Hi, I'm{' '}
           <span className="text-accent font-mono">
@@ -93,7 +87,7 @@ const Hero = () => {
             View My Work
           </ScrollLink>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };
