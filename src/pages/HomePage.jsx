@@ -9,8 +9,20 @@ const Projects = lazy(() => import('../components/Projects'));
 const Blog = lazy(() => import('../components/Blog'));
 const Contact = lazy(() => import('../components/Contact'));
 
+const preloadSections = () => {
+  import('../components/WaveDivider');
+  import('../components/About');
+  import('../components/Projects');
+  import('../components/Blog');
+  import('../components/Contact');
+};
+
 const HomePage = () => {
   const location = useLocation();
+
+  useEffect(() => {
+    preloadSections();
+  }, []);
 
   useEffect(() => {
     if (location.state?.scrollTo) {
@@ -20,7 +32,7 @@ const HomePage = () => {
           duration: 800,
           offset: -80,
         });
-      }, 100);
+      }, 300);
       window.history.replaceState({}, document.title);
     }
   }, [location.state]);
