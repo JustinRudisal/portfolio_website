@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=1024">
   <title>Justin Rudisal - Resume</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -18,26 +18,9 @@
     }
 
     @media print {
-      body { padding: 0; margin: 0; max-width: none; font-size: 10.5pt; }
+      body { padding: 0; margin: 0; }
       .no-print { display: none; }
       @page { margin: 0.5in 0.6in; size: letter; }
-      .job-header, .edu-entry { display: flex; }
-      h1 { font-size: 18pt; }
-      h2 { font-size: 11pt; margin-top: 8px; margin-bottom: 4px; }
-      .summary, li, .job-company, p { font-size: 9.5pt; }
-      .job { margin-bottom: 6px; }
-      ul { margin-top: 1px; }
-      li { margin-bottom: 1px; }
-    }
-
-    @media screen and (max-width: 600px) {
-      body { padding: 1rem; font-size: 14px; max-width: 100%; }
-      h1 { font-size: 24px; }
-      h2 { font-size: 16px; }
-      .job-header, .edu-entry { display: block; }
-      .job-dates, .edu-date { display: block; font-size: 13px; margin-top: 2px; }
-      .summary, li, .job-company { font-size: 14px; line-height: 1.5; }
-      .print-btn { position: static; display: block; width: 100%; margin-bottom: 1rem; }
     }
 
     h1 {
