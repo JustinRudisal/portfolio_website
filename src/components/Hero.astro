@@ -1,0 +1,111 @@
+---
+---
+
+<section
+  id="hero"
+  class="relative min-h-screen flex items-center justify-center overflow-hidden bg-surface-dark"
+>
+  <!-- Asanoha geometric pattern overlay -->
+  <div
+    class="absolute inset-0 opacity-[0.04]"
+    aria-hidden="true"
+    style="background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%2322d3ee' stroke-width='0.5'%3E%3Cpath d='M40 0L0 40L40 80L80 40Z'/%3E%3Cpath d='M40 0L40 80'/%3E%3Cpath d='M0 40L80 40'/%3E%3Cpath d='M40 0L0 40'/%3E%3Cpath d='M40 0L80 40'/%3E%3Cpath d='M0 40L40 80'/%3E%3Cpath d='M80 40L40 80'/%3E%3Cpath d='M20 20L60 20L60 60L20 60Z'/%3E%3Cpath d='M40 0L20 20'/%3E%3Cpath d='M40 0L60 20'/%3E%3Cpath d='M80 40L60 20'/%3E%3Cpath d='M80 40L60 60'/%3E%3Cpath d='M40 80L60 60'/%3E%3Cpath d='M40 80L20 60'/%3E%3Cpath d='M0 40L20 60'/%3E%3Cpath d='M0 40L20 20'/%3E%3C/g%3E%3C/svg%3E&quot;); background-size: 80px 80px;"
+  ></div>
+
+  <!-- Subtle radial glow -->
+  <div
+    class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(34,211,238,0.08)_0%,_transparent_70%)]"
+    aria-hidden="true"
+  ></div>
+
+  <div class="relative z-10 text-center px-6 max-w-4xl animate-[fadeInUp_0.8s_ease-out]">
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-text-primary mb-4 leading-tight">
+      Hi, I'm{' '}
+      <span class="text-accent font-mono" id="typewriter-container">
+        <span id="typewriter-text"></span><span id="typewriter-cursor" class="animate-pulse">_</span>
+      </span>
+    </h1>
+
+    <p class="text-lg sm:text-xl text-text-secondary mt-6 max-w-2xl mx-auto">
+      Building scalable, secure, and thoughtful software.
+      Turning complex problems into elegant solutions.
+    </p>
+
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a
+        href="#about"
+        class="inline-block bg-cta hover:bg-cta-hover px-8 py-3 rounded-lg text-surface-dark font-semibold text-base transition-all duration-200 cursor-pointer hover:shadow-lg hover:shadow-cta/20 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+      >
+        Learn More About Me
+      </a>
+
+      <a
+        href="#blog"
+        class="inline-block border border-accent hover:bg-accent/10 px-8 py-3 rounded-lg text-accent hover:text-text-primary font-medium text-base transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+      >
+        Read My Blog
+      </a>
+
+      <a
+        href="#projects"
+        class="inline-block border border-surface-lighter hover:border-accent px-8 py-3 rounded-lg text-text-secondary hover:text-accent font-medium text-base transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+      >
+        View My Work
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  const words = [
+    ' Justin Rudisal',
+    ' a Senior Software Engineer',
+    ' an Identity Security Engineer',
+    ' a Builder of AI-Powered Tools',
+  ];
+
+  const typeSpeed = 70;
+  const deleteSpeed = 50;
+  const delaySpeed = 2000;
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const textEl = document.getElementById('typewriter-text');
+  const cursorEl = document.getElementById('typewriter-cursor');
+
+  if (prefersReducedMotion && textEl) {
+    textEl.textContent = words[0];
+  } else if (textEl) {
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function tick() {
+      const currentWord = words[wordIndex];
+
+      if (isDeleting) {
+        charIndex--;
+        textEl!.textContent = currentWord.substring(0, charIndex);
+
+        if (charIndex === 0) {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          setTimeout(tick, typeSpeed);
+        } else {
+          setTimeout(tick, deleteSpeed);
+        }
+      } else {
+        charIndex++;
+        textEl!.textContent = currentWord.substring(0, charIndex);
+
+        if (charIndex === currentWord.length) {
+          isDeleting = true;
+          setTimeout(tick, delaySpeed);
+        } else {
+          setTimeout(tick, typeSpeed);
+        }
+      }
+    }
+
+    tick();
+  }
+</script>

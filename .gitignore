@@ -12,6 +12,9 @@
 /build
 /dist
 
+# astro
+.astro/
+
 # claude code
 .claude/
 

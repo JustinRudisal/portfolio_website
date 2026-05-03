@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 const NewsletterSignup = () => {
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState('idle');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!email.trim()) return;
 
