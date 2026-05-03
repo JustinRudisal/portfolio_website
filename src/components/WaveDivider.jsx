@@ -1,0 +1,31 @@
+import React from 'react';
+
+const WaveDivider = ({ fromColor = '#0f172a', toColor = '#1e293b', flip = false }) => {
+  return (
+    <div
+      className={`w-full overflow-hidden leading-[0] ${flip ? 'rotate-180' : ''}`}
+      aria-hidden="true"
+      role="presentation"
+      style={{ backgroundColor: fromColor }}
+    >
+      <svg
+        className="relative block w-full h-[40px] sm:h-[60px]"
+        viewBox="0 0 1200 60"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0,30 C150,50 350,0 600,30 C850,60 1050,10 1200,30 L1200,60 L0,60 Z"
+          fill={toColor}
+        />
+        <path
+          d="M0,35 C200,55 400,10 600,35 C800,60 1000,15 1200,35 L1200,60 L0,60 Z"
+          fill={toColor}
+          opacity="0.5"
+        />
+      </svg>
+    </div>
+  );
+};
+
+export default WaveDivider;

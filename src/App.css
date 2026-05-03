@@ -1,99 +1,86 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-surface-darkest: #0b1120;
+  --color-surface-dark: #0f172a;
+  --color-surface: #1e293b;
+  --color-surface-light: #334155;
+  --color-surface-lighter: #475569;
+  --color-accent: #22d3ee;
+  --color-accent-dim: #0e7490;
+  --color-cta: #f59e0b;
+  --color-cta-hover: #d97706;
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #8494a7;
+  --color-error: #f87171;
+  --color-success: #22c55e;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
 
 html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 body {
-  font-family: 'Roboto', sans-serif;
-  background: linear-gradient(to right, #6b46c1, #1d4ed8); /* Purple background */
-  color: #fff; /* Set default text color to white for readability */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #0f172a;
+  color: #f1f5f9;
+  line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.2;
 }
 
 a {
-  color: #ffd700; /* Gold color for links */
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
+a:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
-.App {
-  text-align: center;
+::selection {
+  background-color: #22d3ee;
+  color: #0f172a;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 1.5rem;
+  background-color: #22d3ee;
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  border-radius: 0 0 0.5rem 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Custom styles for the About section */
-#about {
-  padding: 2rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#about h2 {
-  font-family: 'Montserrat', sans-serif;
-  color: #ffd700; /* Gold color for headings */
-}
-
-#about p {
-  font-family: 'Roboto', sans-serif;
-  color: #fff; /* White color for text */
-}
-
-#about ul {
-  list-style: none;
-  padding: 0;
-}
-
-#about ul li {
-  display: flex;
-  align-items: center;
-  font-family: 'Roboto', sans-serif;
-  color: #fff; /* White color for text */
-}
-
-#about ul li span {
-  margin-right: 0.5rem;
-  color: #ffd700; /* Gold color for icons */
+.skip-to-content:focus {
+  left: 0;
+  outline: 2px solid #f1f5f9;
+  outline-offset: 2px;
 }

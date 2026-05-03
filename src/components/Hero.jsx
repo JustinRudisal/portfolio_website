@@ -1,38 +1,99 @@
 import React from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 import { Typewriter } from 'react-simple-typewriter';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
     <section
       id="hero"
-      className="pt-20 h-screen bg-gradient-to-r from-purple-500 to-indigo-500 text-white flex items-center justify-center"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-surface-dark"
     >
-      <div className="text-center">
-        <h1 className="text-5xl font-bold">
+      {/* Asanoha geometric pattern overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        aria-hidden="true"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%2322d3ee' stroke-width='0.5'%3E%3Cpath d='M40 0L0 40L40 80L80 40Z'/%3E%3Cpath d='M40 0L40 80'/%3E%3Cpath d='M0 40L80 40'/%3E%3Cpath d='M40 0L0 40'/%3E%3Cpath d='M40 0L80 40'/%3E%3Cpath d='M0 40L40 80'/%3E%3Cpath d='M80 40L40 80'/%3E%3Cpath d='M20 20L60 20L60 60L20 60Z'/%3E%3Cpath d='M40 0L20 20'/%3E%3Cpath d='M40 0L60 20'/%3E%3Cpath d='M80 40L60 20'/%3E%3Cpath d='M80 40L60 60'/%3E%3Cpath d='M40 80L60 60'/%3E%3Cpath d='M40 80L20 60'/%3E%3Cpath d='M0 40L20 60'/%3E%3Cpath d='M0 40L20 20'/%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: '80px 80px',
+        }}
+      />
+
+      {/* Subtle radial glow */}
+      <div
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(34,211,238,0.08)_0%,_transparent_70%)]"
+        aria-hidden="true"
+      />
+
+      <motion.div
+        className="relative z-10 text-center px-6 max-w-4xl"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-text-primary mb-4 leading-tight">
           Hi, I'm{' '}
-          <span style={{ color: '#FFD700' }}> {/* Gold color for emphasis */}
+          <span className="text-accent font-mono">
             <Typewriter
-              words={['Justin Rudisal', 'a Senior Software Engineer', 'a Problem Solver', 'a Tech Enthusiast']}
+              words={[
+                ' Justin Rudisal',
+                ' a Senior Software Engineer',
+                ' an Identity Security Engineer',
+                ' a Builder of AI-Powered Tools',
+              ]}
               loop={true}
               cursor
               cursorStyle="_"
               typeSpeed={70}
               deleteSpeed={50}
-              delaySpeed={1000}
+              delaySpeed={2000}
             />
           </span>
         </h1>
-        <p className="mt-4 text-xl">Crafting elegant solutions one line of code at a time.</p>
-        <ScrollLink
-          to="about"
-          smooth={true}
-          duration={1000}
-          className="mt-6 inline-block bg-yellow-500 px-6 py-3 rounded-full text-white text-lg font-semibold hover:bg-yellow-600 cursor-pointer"
-        >
-          Learn More About Me
-        </ScrollLink>
-      </div>
+
+        <p className="text-lg sm:text-xl text-text-secondary mt-6 max-w-2xl mx-auto">
+          Building scalable, secure, and thoughtful software.
+          Turning complex problems into elegant solutions.
+        </p>
+
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <ScrollLink
+            to="about"
+            smooth={true}
+            duration={800}
+            offset={-80}
+            className="inline-block bg-cta hover:bg-cta-hover px-8 py-3 rounded-lg text-surface-dark font-semibold text-base transition-all duration-200 cursor-pointer hover:shadow-lg hover:shadow-cta/20 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+            tabIndex={0}
+            role="link"
+          >
+            Learn More About Me
+          </ScrollLink>
+
+          <ScrollLink
+            to="blog"
+            smooth={true}
+            duration={800}
+            offset={-80}
+            className="inline-block border border-accent hover:bg-accent/10 px-8 py-3 rounded-lg text-accent hover:text-text-primary font-medium text-base transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+            tabIndex={0}
+            role="link"
+          >
+            Read My Blog
+          </ScrollLink>
+
+          <ScrollLink
+            to="projects"
+            smooth={true}
+            duration={800}
+            offset={-80}
+            className="inline-block border border-surface-lighter hover:border-accent px-8 py-3 rounded-lg text-text-secondary hover:text-accent font-medium text-base transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+            tabIndex={0}
+            role="link"
+          >
+            View My Work
+          </ScrollLink>
+        </div>
+      </motion.div>
     </section>
   );
 };

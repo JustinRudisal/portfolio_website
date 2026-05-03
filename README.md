@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# justinrudisal.com
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Personal portfolio and blog for Justin Rudisal, Senior Software Engineer specializing in Identity and Access Management at Disney.
 
-## Available Scripts
+**Live site:** [justinrudisal.com](https://justinrudisal.com)
 
-In the project directory, you can run:
+## What this is
 
-### `npm start`
+A single-page portfolio site with a blog, built with React and deployed on Cloudflare Pages. It serves as my professional presence online: who I am, what I have built, what I think about, and how to reach me.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React 19** with React Router for page navigation
+- **Vite 8** for builds and dev server
+- **Tailwind CSS 4** for styling
+- **Framer Motion** for scroll animations (with `prefers-reduced-motion` support)
+- **EmailJS** for contact form delivery (no backend required)
+- **Cloudflare Turnstile** for bot protection on the contact form
+- **Cloudflare Pages** for hosting, CDN, and SSL
 
-### `npm test`
+## Project structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+src/
+  components/     Reusable UI components (Navbar, Hero, Footer, etc.)
+  pages/          Full-page views (HomePage, blog posts)
+  App.jsx         Router and layout
+  App.css         Theme tokens and global styles
+public/
+  _headers        Security headers for Cloudflare Pages
+  resume.html     ATS-friendly resume (print to PDF)
+```
 
-### `npm run build`
+## Security
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This repo is intentionally public. There are no secrets, credentials, API keys, or tokens in the codebase that are not already designed to be client-side public keys.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **EmailJS public key, service ID, and template ID** are client-side values by design. They are visible in the browser JS bundle on every page load regardless of whether the repo is public. Abuse is mitigated by Cloudflare Turnstile, a honeypot field, and client-side rate limiting.
+- **Cloudflare Turnstile site key** is explicitly designed to be public and is present in the rendered HTML.
+- **No backend secrets, no server credentials, no environment variables required.** The entire site is static.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Accessibility
 
-### `npm run eject`
+Built to WCAG 2.1 AA standards:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- All text/background color combinations meet minimum contrast ratios
+- Skip-to-content link for keyboard navigation
+- Semantic HTML with proper heading hierarchy and ARIA landmarks
+- Form inputs with associated labels, error messages linked via `aria-describedby`
+- All animations respect `prefers-reduced-motion`
+- Mobile-responsive with accessible hamburger menu
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Running locally
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm install
+npm run dev
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Opens at `http://localhost:5173`.
 
-## Learn More
+## Building
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Output goes to `dist/`. The `_headers` file and `resume.html` are copied from `public/` automatically.
 
-### Code Splitting
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Source code is MIT licensed. Written content (blog posts, resume, biographical text) is copyright Justin Rudisal. See [LICENSE](LICENSE) for details.

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Justin Rudisal - Resume</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Calibri, 'Segoe UI', Arial, sans-serif;
+      font-size: 11pt;
+      line-height: 1.3;
+      color: #1a1a1a;
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 0.6in 0.75in;
+    }
+
+    @media print {
+      body { padding: 0; margin: 0; }
+      .no-print { display: none; }
+      @page { margin: 0.5in 0.6in; size: letter; }
+    }
+
+    h1 {
+      font-size: 20pt;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 4px;
+      color: #111;
+    }
+
+    .contact {
+      text-align: center;
+      font-size: 10pt;
+      color: #333;
+      margin-bottom: 14px;
+    }
+
+    .contact a {
+      color: #1a5276;
+      text-decoration: none;
+    }
+
+    h2 {
+      font-size: 12pt;
+      font-weight: bold;
+      color: #1a5276;
+      border-bottom: 1.5px solid #1a5276;
+      padding-bottom: 2px;
+      margin-top: 12px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .summary {
+      margin-bottom: 4px;
+      font-size: 10.5pt;
+    }
+
+    .job {
+      margin-bottom: 10px;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1px;
+    }
+
+    .job-title {
+      font-weight: bold;
+      font-size: 11pt;
+    }
+
+    .job-dates {
+      font-size: 10pt;
+      color: #444;
+      white-space: nowrap;
+    }
+
+    .job-company {
+      font-style: italic;
+      font-size: 10.5pt;
+      color: #333;
+      margin-bottom: 3px;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin-top: 2px;
+    }
+
+    li {
+      margin-bottom: 2px;
+      font-size: 10.5pt;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 2px 8px;
+      font-size: 10.5pt;
+    }
+
+    .skills-label {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .edu-entry {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    .edu-degree {
+      font-weight: bold;
+      font-size: 11pt;
+    }
+
+    .edu-school {
+      font-style: italic;
+      font-size: 10.5pt;
+      color: #333;
+    }
+
+    .edu-date {
+      font-size: 10pt;
+      color: #444;
+      white-space: nowrap;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+    .print-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #1a5276;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .print-btn:hover { background: #154360; }
+  </style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">Save as PDF</button>
+
+<h1>Justin Rudisal</h1>
+<div class="contact">
+  <a href="https://www.linkedin.com/in/justinrudisal/">LinkedIn</a> | <a href="https://github.com/JustinRudisal">GitHub</a> | <a href="https://justinrudisal.com">justinrudisal.com</a>
+</div>
+
+<h2>Professional Summary</h2>
+<p class="summary">
+  Senior Software Engineer with 10+ years of experience across financial services and entertainment, specializing in Identity and Access Management at enterprise scale. Currently building and maintaining IAM platforms serving tens of thousands of users at Disney, with deep expertise in Okta, OAuth2, SAML, SCIM, and AWS serverless architecture. Pursuing an M.S. in Artificial Intelligence, actively bridging AI/ML with identity security through production tooling and graduate research. Track record of delivering measurable improvements: 80%+ reduction in system processing time, AI-powered developer tools adopted for production use, and enterprise architecture proposals presented to and implemented at EVP-level direction.
+</p>
+
+<h2>Technical Skills</h2>
+<p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>Languages:</strong> Java, Python, JavaScript, TypeScript, Node.js, SQL, HTML, CSS</p>
+<p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>Backend:</strong> Spring Boot, Spring Data JPA, Hibernate 6, FastAPI, Flask, Express</p>
+<p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>Frontend:</strong> Angular, React, Angular Material, RxJS</p>
+<p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>Cloud (AWS):</strong> Lambda, API Gateway, DynamoDB, SQS, EventBridge, Step Functions, ECS/Fargate, S3, Secrets Manager, CloudWatch, Bedrock</p>
+<p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>IAM/Security:</strong> Okta, Active Directory, SailPoint, PingFederate, OAuth2, OIDC, SAML, SCIM, SSF, JWT/JWKS, MFA</p>
+<p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>AI/ML:</strong> Claude (Opus/Sonnet via AWS Bedrock), extended thinking, agentic tool-use, NLP, anomaly detection</p>
+<p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>DevOps/Tools:</strong> GitLab CI/CD, Docker, SAM, Splunk, Grafana, New Relic, Wiz.io, Snyk, Jira, Confluence</p>
+<p style="font-size: 10.5pt; margin-bottom: 2px;"><strong>Practices:</strong> Agile (Scrum), CI/CD, threat modeling, secure SDLC, event-driven architecture, zero-trust design</p>
+
+<h2>Professional Experience</h2>
+
+<div class="job">
+  <div class="job-header">
+    <span class="job-title">Senior Software Engineer, Identity and Access Management</span>
+    <span class="job-dates">Jul 2024 - Present</span>
+  </div>
+  <div class="job-company">The Walt Disney Company, Enterprise Technology - Orlando, FL</div>
+  <ul>
+    <li>Expanded from subject matter expert on a single platform to key contributor across the entire Identity Security Engineering ecosystem, owning and maintaining multiple production systems</li>
+    <li>Designed, presented, and implemented a platform architecture overhaul that separated identity and access management into independent services with event-driven communication. Personally drove buy-in from teams up to EVP level</li>
+    <li>Built event-driven Shared Signals Framework handling SCIM, CAEP, and RISC events in JWT format with multi-issuer authentication</li>
+    <li>Led security incident response escalated to CISO level: analyzed production data, designed multi-option remediation plan, and presented executive brief to senior leadership</li>
+    <li>Built AI-powered code review tool using Claude on AWS Bedrock with agentic tool-use, extended thinking, and a 4-phase review strategy. 100% test coverage, adopted by the team for production use</li>
+    <li>Created release documentation automation tool integrating Jira, GitLab, ServiceNow, and Claude AI with Okta SSO and async job processing, automating change request creation. Adopted by the team for production releases</li>
+    <li>Provided technical leadership during critical identity platform migration: built dashboards, alerting, and incident triage for production cutover</li>
+    <li>Recognized as team's primary AI strategy resource. Participated in vendor evaluation calls with VP-level leadership</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-header">
+    <span class="job-title">Software Engineer, Identity and Access Management</span>
+    <span class="job-dates">Mar 2022 - Jul 2024</span>
+  </div>
+  <div class="job-company">The Walt Disney Company, Enterprise Technology - Orlando, FL</div>
+  <ul>
+    <li>Sole engineer maintaining an enterprise identity platform serving 70,000+ external users (vendors, affiliates, contractors) through multiple organizational restructures without service disruption</li>
+    <li>Achieved 80%+ reduction in API processing time through query optimization</li>
+    <li>Delivered first automated daytime production release for a critical identity application, reducing release time from hours to 14 minutes</li>
+    <li>Built nightly batch sync processing 76,000+ user profiles with rate limiting, concurrent execution, and 100% test coverage</li>
+    <li>Led migration from Java 11 to Java 17 and Spring Boot 2 to Spring Boot 3 across the platform ecosystem</li>
+    <li>Implemented self-service password reset transition, significantly reducing help-desk ticket volume</li>
+    <li>Developed and maintained Java Spring Boot APIs, Node.js Lambda functions, Angular frontends, and Python serverless services orchestrated through AWS</li>
+    <li>Trained and onboarded multiple new engineers. Cited as team subject matter expert in every annual review from FY22 through FY25</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-header">
+    <span class="job-title">Software Engineer</span>
+    <span class="job-dates">Oct 2021 - Mar 2022</span>
+  </div>
+  <div class="job-company">JPMorgan Chase & Co. - Tampa, FL (Remote)</div>
+  <ul>
+    <li>Promoted from Associate Software Engineer based on technical contributions and automation leadership</li>
+    <li>Supported and enhanced applications within SWIFT infrastructure handling millions of dollars in daily transaction throughput</li>
+    <li>Led automation testing initiative using Selenium and Cucumber, establishing regression test coverage for critical payment flows</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-header">
+    <span class="job-title">Associate Software Engineer</span>
+    <span class="job-dates">Feb 2020 - Oct 2021</span>
+  </div>
+  <div class="job-company">JPMorgan Chase & Co. - Tampa, FL (Remote)</div>
+  <ul>
+    <li>Developed and maintained applications on Java-based webMethods Integration Server supporting SWIFT financial messaging</li>
+    <li>Delivered features through full SDLC and CI/CD within a globally distributed Agile team using Jira and Bitbucket</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-header">
+    <span class="job-title">Software Engineering Intern (Full-Time)</span>
+    <span class="job-dates">Jun 2018 - Jun 2019</span>
+  </div>
+  <div class="job-company">The Walt Disney Company - Orlando, FL</div>
+  <ul>
+    <li>Designed, developed, and released internal web applications for parks operations and engineering teams</li>
+    <li>Presented deliverables to VP and Director-level leadership</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-header">
+    <span class="job-title">Software Development Intern (Full-Time)</span>
+    <span class="job-dates">May 2016 - Mar 2018</span>
+  </div>
+  <div class="job-company">Fiserv, Inc. - Lake Mary, FL</div>
+  <ul>
+    <li>Designed and built internal applications that reduced multi-day manual processes to minutes</li>
+  </ul>
+</div>
+
+<h2>Education</h2>
+
+<div class="edu-entry">
+  <div>
+    <span class="edu-degree">M.S. Computer Science, Artificial Intelligence Specialization</span><br>
+    <span class="edu-school">Florida Atlantic University</span> - 4.0 GPA
+  </div>
+  <span class="edu-date">In Progress (Expected 2026-2027)</span>
+</div>
+
+<div class="edu-entry">
+  <div>
+    <span class="edu-degree">B.S. Computer Science</span><br>
+    <span class="edu-school">University of Central Florida</span>
+  </div>
+  <span class="edu-date">Dec 2019</span>
+</div>
+
+<h2>Selected Projects</h2>
+
+<div class="job">
+  <div class="job-header">
+    <span class="job-title">Naive Bayes Classification for IAM Anomaly Detection</span>
+    <span class="job-dates">Academic Research</span>
+  </div>
+  <ul>
+    <li>Built ML pipeline applying Naive Bayes classification to detect anomalous access patterns in IAM systems with synthetic data generation, hyperparameter tuning, and k-fold cross-validation</li>
+  </ul>
+</div>
+
+<h2>Additional</h2>
+<ul>
+  <li>Founding member of Bi+ Board and Pride Council member at JPMorgan Chase. Active member of Pride BERG at Disney. Advocate for accessibility (WCAG 2.1 AA) and inclusive language</li>
+</ul>
+
+</body>
+</html>

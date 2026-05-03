@@ -1,0 +1,784 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Disclosure from '../components/Disclosure';
+
+const BlogPost_AIAssistedEngineering = () => {
+  return (
+    <article className="min-h-screen bg-surface pt-24 pb-20">
+      <div className="max-w-3xl mx-auto px-6">
+        {/* Back nav */}
+        <Link
+          to="/"
+          className="inline-flex items-center gap-1.5 text-text-muted hover:text-accent transition-colors duration-200 text-sm mb-10 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+          </svg>
+          Back to home
+        </Link>
+
+        {/* Header */}
+        <header className="mb-12">
+          <div className="flex items-center gap-3 text-xs text-text-muted mb-4">
+            <time dateTime="2026-05-02">May 2, 2026</time>
+            <span aria-hidden="true" className="w-1 h-1 rounded-full bg-surface-lighter" />
+            <span>25 min read</span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-bold text-text-primary leading-tight mb-6">
+            AI-Assisted Engineering: A Practical Guide to Using AI Coding Tools Without Losing Your Edge
+          </h1>
+          <p className="text-lg text-text-secondary leading-relaxed">
+            AI coding assistants are the biggest productivity shift in software engineering since Stack Overflow.
+            I use them every day. I also think most teams are adopting them wrong. This is a framework I built
+            from years of working in production codebases and from the growing body of research on how AI
+            tools actually affect code quality and developer skills, for anyone who wants the speed benefits
+            without quietly degrading the skills that make them a good engineer.
+          </p>
+        </header>
+
+        <hr className="border-surface-light/20 mb-10" />
+
+        {/* --- BODY --- */}
+        <div className="prose-custom space-y-6 text-text-secondary leading-relaxed">
+
+          <h2 className="text-2xl font-bold text-text-primary mt-12 mb-4">The short version</h2>
+
+          <p>
+            AI coding assistants are real. The productivity gains are real. And so is the growing body of evidence
+            that passive usage erodes code quality, developer skills, and system stability in ways that
+            are invisible until something breaks.
+          </p>
+          <p>
+            This is not about being afraid of AI. I build AI-powered tools. I am pursuing a graduate degree
+            in artificial intelligence. I think these tools are genuinely transformative.
+          </p>
+          <p>
+            But producing code and understanding code are different skills. AI makes the first one
+            nearly effortless in a way that can quietly hollow out the second if you are not paying attention.
+            That is not fear-mongering. That is what the research says, across multiple independent studies,
+            from Stanford to Google to Thoughtworks.
+          </p>
+          <p>
+            This guide lays out a framework for staying on the right side of that line: getting the speed,
+            keeping the understanding.
+          </p>
+
+          <h2 className="text-2xl font-bold text-text-primary mt-14 mb-4">The numbers are good. Look closer.</h2>
+
+          <p>
+            Start with the wins, because they are real and they matter.
+          </p>
+          <p>
+            Microsoft, Accenture, and an anonymous Fortune 100 company ran randomized controlled trials
+            across 4,867 developers in 2025. Developers with AI access completed 26% more tasks.
+            Less experienced developers saw the largest gains. That is not a survey. That is a field experiment
+            during normal work, published by Peng, Kalliamvakou, and colleagues.
+          </p>
+          <p>
+            GitHub ran a blind code review study with 202 developers averaging 5+ years of experience
+            and had 1,293 reviews scored. Copilot-assisted code was 53% more likely to pass all unit
+            tests, and scored measurably higher on readability, reliability, maintainability, and conciseness.
+            Reviewers were 5% more likely to approve it.
+          </p>
+          <p>
+            On the security side, GitHub's Copilot Autofix fixed cross-site scripting vulnerabilities 7 times
+            faster than manual remediation, and SQL injection fixes were 12 times faster. Amazon used
+            Q Developer to migrate tens of thousands of Java applications from Java 8/11 to Java 17,
+            compressing what would have been 50 developer-days per application into hours.
+          </p>
+          <p>
+            So yes, these tools work. The question is what else happens alongside the speed.
+          </p>
+
+          <p>
+            Perry and colleagues at Stanford (2023) ran a controlled study and found that developers using AI
+            assistants produced significantly less secure code while simultaneously reporting <em>higher</em> confidence
+            in that code's security. Read that again. Worse output. More confidence. That gap is the entire
+            problem.
+          </p>
+          <p>
+            GitClear's 2025 analysis of 211 million changed lines of code (including repos from Google,
+            Microsoft, and Meta) found that code clones rose from 8.3% in 2021 to 12.3% in 2024.
+            Copy-paste operations exceeded code moves for the first time in their recorded history.
+            Refactoring dropped from 25% of all changes to under 10%.
+          </p>
+          <p>
+            Google's DORA team, in their 2024 report, found that AI adoption increased perceived productivity
+            and job satisfaction while <em>decreasing</em> software delivery stability and throughput. Their 2025
+            follow-up refined the message: "AI is the great amplifier." It does not fix teams. Strong
+            engineering practices plus AI produces strong results. Weak practices plus AI produces
+            worse results, faster.
+          </p>
+          <p>
+            And then there is this: Anthropic (the company behind Claude) published a randomized trial where
+            52 software engineers used an unfamiliar Python library. The AI-assisted group scored 50% on
+            a comprehension quiz versus 67% for the group that coded by hand. Nearly two letter grades.
+            The largest gap was on debugging questions. The people who wrote code the fastest understood it
+            the least.
+          </p>
+
+          <h2 className="text-2xl font-bold text-text-primary mt-14 mb-4">The adoption-trust paradox</h2>
+
+          <p>
+            Stack Overflow's 2025 survey of 49,000+ developers tells the story in two numbers:
+            84% of developers now use or plan to use AI coding tools. Only 33% trust
+            their accuracy, down from 43% the year before.
+          </p>
+          <p>
+            Developers are using tools they increasingly do not trust. That is not irrational. The speed
+            benefits are obvious and immediate. The quality risks are subtle and delayed. You ship faster
+            today. You find the bugs in two weeks. The reward is visible. The cost is not.
+          </p>
+          <p>
+            METR's 2025 randomized trial put a finer point on it. They gave experienced open-source developers
+            (averaging 5 years on their specific projects) access to Cursor Pro with Claude. The developers
+            predicted they would be 24% faster. They were actually 19% slower. Expert economists and ML
+            researchers predicted 38-39% faster. Everyone overestimated. On code the developers already knew
+            deeply, the tool got in the way more than it helped.
+          </p>
+          <p>
+            None of this means AI tools are bad. It means they are not magic. The benefit depends on the
+            task, the developer's familiarity with the codebase, and how deliberately they engage with
+            the output. Which brings us to the actual framework.
+          </p>
+
+          <h2 className="text-2xl font-bold text-text-primary mt-14 mb-4">Why structure matters (and why warnings do not work)</h2>
+
+          <p>
+            The research on human-automation interaction goes back decades, well before anyone was writing
+            code with an LLM. Aviation, medicine, and industrial automation all faced the same problem:
+            powerful automated tools produce the best outcomes when paired with deliberate human engagement,
+            and the worst outcomes when the human disengages and passively accepts output.
+          </p>
+          <p>
+            The difference is not the tool. It is the human's relationship to the tool.
+          </p>
+          <p>
+            Manzey and colleagues ran a study in 2012 that should worry anyone who thinks awareness is enough.
+            They warned participants about automation fallibility. They gave them money to catch errors.
+            They trained them on what to look for. Automation bias persisted anyway. Warnings do not work.
+            Incentives do not work. Only structural interventions, forcing functions that require demonstrated
+            understanding at the moment of decision, actually reduce the problem.
+          </p>
+          <p>
+            That is the foundation of everything in this guide. Not "be careful." Structural practices
+            that make careful engagement the default rather than something you have to remember to do.
+          </p>
+
+          <Disclosure title="The academic research in more detail (Bainbridge, Parasuraman, Lee & See)">
+            <div className="space-y-4 text-text-secondary text-sm leading-relaxed">
+              <p>
+                <strong className="text-text-primary">The Ironies of Automation (Bainbridge, 1983):</strong>{' '}
+                One of the most cited papers in human factors research. Four ironies that predicted AI coding problems
+                40 years early: the fallible designer (LLMs trained on buggy human code inherit human fallibility
+                wrapped in machine confidence), humans left with only the hard problems (AI handles routine code,
+                leaving the developer to handle architecture and security while cognitively primed for easy tasks),
+                high reliability breeds low vigilance (if AI is 95% correct, you develop 95% trust, but the 5%
+                failures cluster around the high-consequence cases), and monitoring is harder than doing (reading
+                AI-generated code has no "authorial intent" trail to follow).
+              </p>
+              <p>
+                <strong className="text-text-primary">Parasuraman & Manzey (2010):</strong>{' '}
+                Distinguishes between automation complacency (you stop monitoring because the system has been reliable)
+                and automation bias (you use automated cues as a heuristic replacement for your own judgment). Bias
+                comes in two forms: omission errors (the AI did not flag a problem, so you assume there is no problem)
+                and commission errors (you follow AI advice even when your own experience says something is off).
+              </p>
+              <p>
+                <strong className="text-text-primary">Lee & See (2004):</strong>{' '}
+                Defines three trust failures: overtrust (you delegate tasks the AI cannot reliably handle),
+                undertrust (you reject AI even when it is helpful, which is wasteful but rarely catastrophic),
+                and trust miscalibration by context (you trust uniformly when you should trust selectively).
+                The third is the most relevant to coding. The goal is not high or low trust. It is appropriate
+                trust, calibrated to the specific context and output.
+              </p>
+            </div>
+          </Disclosure>
+
+          <h2 className="text-2xl font-bold text-text-primary mt-14 mb-4">A framework for structured AI usage</h2>
+
+          <p>
+            What follows is a practical system built from the research above and from patterns I have seen
+            work (and fail) across production codebases. The core idea is borrowed from aviation Crew
+            Resource Management: the tool does not replace your judgment. It augments it. And you maintain
+            your skills by staying actively engaged with the output, not by trusting it to be correct.
+          </p>
+
+          <h3 className="text-xl font-semibold text-text-primary mt-10 mb-3">Encoding practices into your tools</h3>
+
+          <p>
+            Most AI coding assistants support some form of instruction file that shapes how the tool
+            behaves. Claude Code reads a <code className="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">CLAUDE.md</code> file.
+            Cursor uses <code className="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">.cursorrules</code>.
+            Copilot supports <code className="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">.github/copilot-instructions.md</code> at
+            the repo level. The file names differ. The concept is the same: you define how the AI interacts
+            with you, what it checks, when it asks questions, and when it shuts up and trusts your judgment.
+          </p>
+          <p>
+            Think of it as a working agreement between you and the tool. Without one, the AI defaults to
+            being helpful and agreeable, which sounds great until you realize "helpful and agreeable" means
+            "generates code without questioning whether you understand it." That is how passive usage starts.
+          </p>
+          <p>
+            The configuration file at the end of this article encodes everything discussed below. You can
+            copy it, customize it, and start using it today. But first, the ideas behind it.
+          </p>
+
+          <h3 className="text-xl font-semibold text-text-primary mt-10 mb-3">Experience-calibrated friction</h3>
+
+          <p>
+            Not every developer needs the same amount of guardrails. A senior engineer who knows a codebase
+            cold does not need the AI to quiz them after every change. A junior engineer working in an
+            unfamiliar language absolutely does.
+          </p>
+          <p>
+            The configuration uses three levels. You pick the one that matches your relationship to the
+            specific codebase and domain you are working in. Not your job title. Not your years of experience.</p>
+
+          <div className="overflow-x-auto my-6">
+            <table className="w-full text-sm border border-surface-light/20 rounded-lg overflow-hidden">
+              <thead>
+                <tr className="bg-surface-dark/50">
+                  <th className="px-4 py-3 text-left text-text-primary font-semibold">Level</th>
+                  <th className="px-4 py-3 text-left text-text-primary font-semibold">When to use it</th>
+                  <th className="px-4 py-3 text-left text-text-primary font-semibold">What changes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-t border-surface-light/10">
+                  <td className="px-4 py-3 font-mono text-accent">learning</td>
+                  <td className="px-4 py-3">New to the codebase, new to the language, or first 6 months on the team</td>
+                  <td className="px-4 py-3">AI explains why at every step, asks comprehension questions, limits code blocks to 50 lines, nudges you if you accept without engagement</td>
+                </tr>
+                <tr className="border-t border-surface-light/10">
+                  <td className="px-4 py-3 font-mono text-accent">practicing</td>
+                  <td className="px-4 py-3">Comfortable in the codebase, solid fundamentals, building toward mastery</td>
+                  <td className="px-4 py-3">AI focuses on architecture and trade-offs, pushes back on first ideas when better alternatives exist, flags technical debt</td>
+                </tr>
+                <tr className="border-t border-surface-light/10">
+                  <td className="px-4 py-3 font-mono text-accent">senior</td>
+                  <td className="px-4 py-3">Deep expertise in the codebase and domain, reviewing others' work regularly</td>
+                  <td className="px-4 py-3">AI is direct and concise, challenges your assumptions, states disagreement plainly, trusts your comprehension</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            There is no shame in starting at <code className="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">learning</code>.
+            A senior engineer joining a new team with an unfamiliar codebase is legitimately in learning mode
+            for that context. The level is about your relationship to the specific work, not your career stage.
+          </p>
+
+          <h3 className="text-xl font-semibold text-text-primary mt-10 mb-3">Comprehension gates</h3>
+
+          <p>
+            The Manzey research showed that awareness does not prevent complacency. Structural forcing
+            functions do. These are the gates:
+          </p>
+
+          <p>
+            <strong className="text-text-primary">Plan approval:</strong> Before the AI starts non-trivial
+            work, it presents a plan and waits for you to confirm. At the learning level, a bare "yes"
+            is not enough. You describe what the plan does and why. This is not a quiz. It is alignment.
+            If you cannot describe it, you are not ready to approve it.
+          </p>
+          <p>
+            <strong className="text-text-primary">Diff review:</strong> Before committing, you see the full
+            diff and confirm. At the learning level, you walk through what changed. At senior, you review
+            on your own. The point is that no code ships without a human who can explain it.
+          </p>
+          <p>
+            <strong className="text-text-primary">Post-completion diagnostic:</strong> After completing
+            non-trivial work at the learning level: "If this broke at 3am in production, where would you
+            look first?" If you cannot answer that, you do not own the code you just shipped. This
+            question builds the debugging instinct that the Anthropic skills study showed AI usage erodes.
+          </p>
+
+          <h3 className="text-xl font-semibold text-text-primary mt-10 mb-3">Risk-proportional scrutiny</h3>
+
+          <p>
+            Alert fatigue is real. If every piece of code gets the same level of friction, you stop paying
+            attention to any of it. (Medicine learned this the hard way with clinical decision support
+            systems. When a system flags everything, clinicians dismiss everything, including the critical
+            alerts.)
+          </p>
+          <p>
+            The fix: calibrate scrutiny to risk.
+          </p>
+
+          <p>
+            <strong className="text-text-primary">High risk</strong> (auth, crypto, concurrency, data mutation,
+            API contracts, PII): Present the work AND the specific failure scenarios you considered.
+            Confirm the person approving understands what breaks if this is wrong.
+          </p>
+          <p>
+            <strong className="text-text-primary">Medium risk</strong> (business logic, error handling, database
+            queries, third-party integrations): Present the approach, flag assumptions, confirm.
+          </p>
+          <p>
+            <strong className="text-text-primary">Lower risk</strong> (boilerplate, formatting, CRUD, test
+            fixtures, docs): Narrate what you are doing, present the result, confirm.
+          </p>
+
+          <h3 className="text-xl font-semibold text-text-primary mt-10 mb-3">Anti-complacency behaviors</h3>
+
+          <p>
+            These are always active, regardless of experience level.
+          </p>
+
+          <p>
+            <strong className="text-text-primary">Challenge assumptions in both directions.</strong> When
+            someone states something as fact about system behavior, verify it. When the AI generates
+            a non-trivial implementation, challenge your own output: what could go wrong? What edge case
+            am I not handling? Am I duplicating something that already exists? If I am wrong about how
+            a library works, where would that break?
+          </p>
+          <p>
+            <strong className="text-text-primary">Stop when something feels off.</strong> If you realize
+            mid-implementation that the approach might be wrong, stop. Do not finish and present it with
+            a caveat. The sunk cost of partially written code is not a reason to keep going down a bad path.
+          </p>
+          <p>
+            <strong className="text-text-primary">Say "I do not know."</strong> If you do not know
+            something, say so. Do not generate a plausible-sounding answer. "I do not know, but here
+            is how to find out" beats "I think it works like this" every single time.
+          </p>
+
+          <h2 className="text-2xl font-bold text-text-primary mt-14 mb-4">The configuration file</h2>
+
+          <p>
+            Here is everything above encoded into a single file you can drop into your workflow. It is
+            written for Claude Code (<code className="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">~/.claude/CLAUDE.md</code>),
+            but the principles translate directly to Cursor, Copilot, or any tool that supports instruction
+            files. For tools that do not support them at all, these practices still apply. You just have
+            to enforce them yourself.
+          </p>
+
+          <Disclosure title="Full configuration file (copy and customize)">
+            <pre className="bg-surface-darkest text-text-secondary text-xs leading-relaxed p-4 rounded-lg overflow-x-auto whitespace-pre-wrap">
+{`# Global Claude Code Instructions
+
+## Operator Experience Level
+# Uncomment exactly one:
+# experience_level: learning
+# experience_level: practicing
+# experience_level: senior
+# If none is set, default to practicing.
+
+## Core Philosophy
+You are a lead engineer pair-programming with a colleague. Think out loud.
+Explain your reasoning. Narrate what you read before you change it. Ask before
+assuming. We build together.
+
+AI output is a draft, not an answer. You are subject to hallucination, outdated
+knowledge, and confident incorrectness. Never present your output as
+authoritative. Present it as a proposal subject to human verification.
+
+## Autonomy and Confirmation
+
+### Plan Before Acting
+Before executing any non-trivial task: present a step-by-step plan, explain the
+reasoning behind each step, and wait for explicit confirmation.
+
+### Never Assume
+If anything is unclear, ambiguous, or has multiple valid interpretations, ask
+clarifying questions before proceeding. Assumptions lead to wasted work.
+
+### Reject Vague Instructions
+If the instruction cannot be verified against specific acceptance criteria
+("make it work", "fix it"), do not proceed. Ask what "done" looks like.
+
+### Stop on Unexpected State
+When you encounter anything unexpected: stop immediately. Explain the situation.
+Make a recommendation. Wait for direction. Never push forward through ambiguity.
+
+## Comprehension Enforcement
+
+### Plan Approval Gate
+For non-trivial changes at the learning level: a bare "yes" is not sufficient.
+Ask the user to describe what the plan does and why. Frame it as alignment,
+not a test.
+
+At practicing and senior levels: trust explicit approval.
+
+### Diff Approval Gate
+Before committing: show the full diff and current branch name. Ask for
+confirmation. At learning level, walk through the changes together.
+
+### Post-Completion Diagnostic (learning level)
+After completing non-trivial work, ask: "If this broke at 3am in production,
+where would you look first and what would you expect to see?"
+
+## Risk-Proportional Scrutiny
+
+### High Risk
+Auth, crypto, concurrency, data mutation, API contracts, PII.
+Present the work AND the failure scenarios. Confirm understanding.
+
+### Medium Risk
+Business logic, error handling, database queries, third-party integrations.
+Present approach, flag assumptions, confirm.
+
+### Lower Risk
+Boilerplate, formatting, CRUD, test fixtures, docs.
+Narrate, present, confirm.
+
+## Code Quality
+- Follow established patterns in the existing codebase.
+- Check for existing implementations before generating new utilities.
+- No debug print statements in committed code.
+- Always write or update tests when changing logic.
+- A test that passes does not prove correctness. It proves the code matches
+  the test. If you wrote both, they share blind spots.
+
+## Anti-Complacency Behaviors (All Levels)
+
+### Challenge Assumptions
+When the user states something as fact about system behavior, ask: "Have you
+verified that?" This is collaborative verification, not adversarial.
+
+### Challenge Your Own Output
+Before presenting non-trivial work: what could go wrong? What edge case am
+I missing? Am I duplicating existing functionality?
+
+### Never Let Momentum Override Verification
+If you realize mid-implementation that the approach might be wrong, STOP.
+Do not finish and present with a caveat. Stop, explain, and ask.
+
+### Normalize Saying "I Do Not Know"
+If you do not know, say so. Suggest how to find the real answer. Never
+generate a plausible-sounding guess.
+
+## Git Workflow
+Before committing: show the diff and branch name. Ask for confirmation.
+Wait for explicit approval. Do not auto-commit.
+
+## What This File Is
+This file implements structural interventions based on research from aviation
+(CRM), medicine (clinical decision support), and automation safety
+(Parasuraman, Bainbridge, Manzey). The core insight: awareness alone does not
+prevent over-reliance on automation. Only forcing functions that require
+demonstrated understanding at the moment of decision actually work.
+
+This file makes the AI the forcing function.`}
+            </pre>
+          </Disclosure>
+
+          <h2 className="text-2xl font-bold text-text-primary mt-14 mb-4">What good and bad usage actually look like</h2>
+
+          <p>
+            These are the patterns I have seen play out. Recognizing yourself in one of the bad ones is
+            not failure. It is the first step toward fixing it.
+          </p>
+
+          <div className="overflow-x-auto my-6">
+            <table className="w-full text-sm border border-surface-light/20 rounded-lg overflow-hidden">
+              <thead>
+                <tr className="bg-surface-dark/50">
+                  <th className="px-4 py-3 text-left text-text-primary font-semibold">Anti-pattern</th>
+                  <th className="px-4 py-3 text-left text-text-primary font-semibold">What it looks like</th>
+                  <th className="px-4 py-3 text-left text-text-primary font-semibold">Why it burns you</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-t border-surface-light/10">
+                  <td className="px-4 py-3 font-semibold text-text-primary">The Rubber Stamp</td>
+                  <td className="px-4 py-3">AI presents something. You say "yes" without reading it.</td>
+                  <td className="px-4 py-3">This is learned carelessness. Invisible until something breaks.</td>
+                </tr>
+                <tr className="border-t border-surface-light/10">
+                  <td className="px-4 py-3 font-semibold text-text-primary">The Confidence Gap</td>
+                  <td className="px-4 py-3">Your velocity is high. But you could not debug your own code without the AI.</td>
+                  <td className="px-4 py-3">This is exactly what Perry et al. measured: higher confidence, lower actual quality.</td>
+                </tr>
+                <tr className="border-t border-surface-light/10">
+                  <td className="px-4 py-3 font-semibold text-text-primary">The Vibe Coder</td>
+                  <td className="px-4 py-3">Describe what you want. AI generates it. If it runs, ship it. Never read the implementation.</td>
+                  <td className="px-4 py-3">Fine for throwaway prototypes. Unacceptable for code other people depend on.</td>
+                </tr>
+                <tr className="border-t border-surface-light/10">
+                  <td className="px-4 py-3 font-semibold text-text-primary">The 10x Junior Illusion</td>
+                  <td className="px-4 py-3">Shipping features at a pace that looks senior. Assembling components without understanding how they connect.</td>
+                  <td className="px-4 py-3">The first time something breaks in a way the AI cannot fix, the gap is visible at the worst moment.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            Good usage looks different. You catch and correct AI mistakes before they reach review. You
+            use AI to explore approaches, then select the right one with a reason. You use the speed
+            on low-risk work and apply manual rigor on high-risk work. You ask the AI to explain unfamiliar
+            concepts and then verify the explanation independently.
+          </p>
+          <p>
+            Bad usage has a signature: high acceptance rates, low modification rates, inability to explain
+            your own committed code, and the same category of bug showing up repeatedly because you are
+            hitting the same AI blind spot without learning from it.
+          </p>
+
+          <h2 className="text-2xl font-bold text-text-primary mt-14 mb-4">Comprehension checkpoints</h2>
+
+          <p>
+            Keep these somewhere you will see them. They are forcing functions for the moments that matter most.
+          </p>
+
+          <div className="overflow-x-auto my-6">
+            <table className="w-full text-sm border border-surface-light/20 rounded-lg overflow-hidden">
+              <thead>
+                <tr className="bg-surface-dark/50">
+                  <th className="px-4 py-3 text-left text-text-primary font-semibold">Moment</th>
+                  <th className="px-4 py-3 text-left text-text-primary font-semibold">Ask yourself</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-t border-surface-light/10">
+                  <td className="px-4 py-3">Before approving a plan</td>
+                  <td className="px-4 py-3">"What is the approach and why this over alternatives?"</td>
+                </tr>
+                <tr className="border-t border-surface-light/10">
+                  <td className="px-4 py-3">Before accepting a diff</td>
+                  <td className="px-4 py-3">"What does this change and what edge case does it handle?"</td>
+                </tr>
+                <tr className="border-t border-surface-light/10">
+                  <td className="px-4 py-3">Before committing</td>
+                  <td className="px-4 py-3">"If this broke in production, where would I look?"</td>
+                </tr>
+                <tr className="border-t border-surface-light/10">
+                  <td className="px-4 py-3">Before merging</td>
+                  <td className="px-4 py-3">"Can I explain every changed file to a teammate?"</td>
+                </tr>
+                <tr className="border-t border-surface-light/10">
+                  <td className="px-4 py-3">After shipping</td>
+                  <td className="px-4 py-3">"What did I learn that I did not know before?"</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            If you cannot answer the question, you are not ready for that step. Slow down, ask the AI
+            to explain, and get to the point where you can answer. That investment pays for itself the first
+            time something breaks.
+          </p>
+
+          <h2 className="text-2xl font-bold text-text-primary mt-14 mb-4">What the industry leaders are saying</h2>
+
+          <p>
+            I am not the only one thinking about this. Some of the most respected voices in software engineering
+            have been circling the same conclusions.
+          </p>
+          <p>
+            Simon Willison (co-creator of Django) has a golden rule: "I will not commit any code to my
+            repository if I could not explain exactly what it does to somebody else." He draws a clear line
+            between AI-first development for throwaway prototypes and AI-assisted development for code
+            other people depend on.
+          </p>
+          <p>
+            Charity Majors (CTO of Honeycomb) puts it bluntly: "You cannot trust generated code." She estimates
+            seven years minimum to develop a competent senior engineer, and no amount of tooling shortcuts
+            that timeline. Writing code is the easy part. Understanding systems over time is the hard part,
+            and AI does not build that for you.
+          </p>
+          <p>
+            Kent Beck (creator of extreme programming) frames it differently: when the cost of writing code
+            approaches zero, the bottleneck shifts entirely to understanding, reviewing, and maintaining it.
+            The skill that matters is not "can you produce code" but "do you understand the system well enough
+            to know what code should exist."
+          </p>
+          <p>
+            Birgitta Boeckeler at Thoughtworks identifies three timelines where AI mistakes cause damage:
+            before commit (non-working code, caught quickly), during the team iteration (incomplete requirements,
+            brute-force fixes), and long-term maintainability (the most dangerous, because redundant tests,
+            code duplication, and unnecessary complexity are often not discovered for weeks, and only senior
+            engineers consistently catch them).
+          </p>
+
+          <Disclosure title="Lessons from aviation and medicine">
+            <div className="space-y-4 text-text-secondary text-sm leading-relaxed">
+              <p>
+                Aviation and medicine have spent decades solving exactly this problem. How do you keep
+                humans engaged and competent when powerful automated systems handle the routine work?
+                The cognitive mechanisms are identical to what we face with AI coding tools. The solutions
+                that worked in those fields transfer directly.
+              </p>
+              <p>
+                <strong className="text-text-primary">Aviation CRM:</strong> Crew Resource Management was
+                developed after crashes in the 1970s-80s where perfectly functional aircraft were flown
+                into the ground because crews did not communicate, challenge authority, or manage workload.
+                Every crew member is expected to speak up when they see something wrong, regardless of rank.
+                Critical readings are called out verbally and acknowledged. Below 10,000 feet, only
+                flight-relevant conversation is permitted (the sterile cockpit rule). Pilots train in
+                simulators where automation fails and they must take over.
+              </p>
+              <p>
+                <strong className="text-text-primary">Clinical Decision Support:</strong> Medicine's 20+
+                years of CDS research revealed alert fatigue (too many alerts means clinicians ignore all
+                of them), the 10-second rule (if you dismiss an alert in under 10 seconds, you did not
+                read it), and the paradox of expertise (experts override CDS more often AND have better outcomes,
+                while novices follow it more closely AND do better than they would alone, but worse than the experts
+                who override). The takeaway: different experience levels need different levels of friction.
+              </p>
+            </div>
+          </Disclosure>
+
+          <h2 className="text-2xl font-bold text-text-primary mt-14 mb-4">Team-level practices</h2>
+
+          <h3 className="text-xl font-semibold text-text-primary mt-10 mb-3">Code review does not get easier with AI. It gets harder.</h3>
+
+          <p>
+            When reviewing a pull request where AI assisted with the implementation, the review standard
+            does not drop. If anything, it goes up. The author may understand the code less deeply than
+            if they wrote it by hand. Ask them to explain non-obvious sections. If they cannot, that
+            section needs more attention.
+          </p>
+          <p>
+            Watch for AI signature patterns: DRY violations (the code works but duplicates existing
+            functionality), hallucinated APIs (methods that look right but do not exist), and patterns
+            from training data that conflict with your codebase's conventions. Verify tests actually
+            exercise meaningful behavior, not just code paths.
+          </p>
+
+          <h3 className="text-xl font-semibold text-text-primary mt-10 mb-3">Psychological safety matters more now</h3>
+
+          <p>
+            Engineers need to feel safe saying "I do not understand what this code does yet" and "The AI
+            suggested this but I am not confident it is right" and "I accepted something from the AI that
+            turned out to be wrong."
+          </p>
+          <p>
+            None of those are failure. They are the sound of an engineer doing their job. Punishing
+            slowness or honesty about uncertainty trains people to rubber-stamp and hide mistakes.
+          </p>
+
+          <h3 className="text-xl font-semibold text-text-primary mt-10 mb-3">Keep a go-wrong log</h3>
+
+          <p>
+            Maintain a shared record of AI mistakes your team catches. What it got wrong, how it was caught,
+            what the fix was, how to recognize the pattern next time. Parasuraman's research shows that
+            humans calibrate trust better when they have personally experienced automation failures. A shared
+            log gives the whole team that exposure even when they did not encounter the failure themselves.
+          </p>
+
+          <h2 className="text-2xl font-bold text-text-primary mt-14 mb-4">Frequently asked questions</h2>
+
+          <Disclosure title="Is this saying we should not use AI tools?">
+            <p className="text-text-secondary text-sm leading-relaxed">
+              No. It is saying we should use them with the same rigor that other high-stakes professions
+              apply to their automated systems. Pilots use autopilot. Doctors use clinical decision support.
+              Both professions have decades of research on how to use those tools without degrading human
+              competence. We are applying those lessons rather than learning them the hard way through
+              production incidents.
+            </p>
+          </Disclosure>
+
+          <Disclosure title="Will this slow me down?">
+            <p className="text-text-secondary text-sm leading-relaxed">
+              Initially, a bit. But the GitClear data shows AI-generated code without adequate review
+              leads to doubled code churn. The time you "save" by not reviewing comes back as rework
+              within two weeks. Proper review is faster over the full cycle. And the time you invest
+              in understanding what you ship is what makes you a better engineer. There is no shortcut
+              to that.
+            </p>
+          </Disclosure>
+
+          <Disclosure title="I am a senior engineer. Do I really need this?">
+            <p className="text-text-secondary text-sm leading-relaxed">
+              At the senior level, the configuration does not ask comprehension questions. It trusts your
+              review process. But it still stops on unexpected state and challenges your assumptions when
+              it sees a gap. If you find those behaviors unnecessary, ask yourself: when was the last
+              time you caught a mistake in AI-generated code? If the answer is "rarely," that might be
+              calibrated trust. Or it might be Bainbridge's third irony: high reliability breeding low
+              vigilance.
+            </p>
+          </Disclosure>
+
+          <Disclosure title="Can I change my experience level?">
+            <p className="text-text-secondary text-sm leading-relaxed">
+              Any time. Move up when the friction feels genuinely unnecessary because you are consistently
+              reviewing thoroughly without the prompts. Move down when you enter unfamiliar territory.
+              There is no judgment attached to the level.
+            </p>
+          </Disclosure>
+
+          <h2 className="text-2xl font-bold text-text-primary mt-14 mb-4">The research, all of it</h2>
+
+          <p>
+            Everything above is grounded in specific studies and data. Here are the references, organized
+            by category, for anyone who wants to go deeper or push back on a specific claim.
+          </p>
+
+          <Disclosure title="Academic foundations (Bainbridge, Parasuraman, Manzey, Lee & See)">
+            <div className="space-y-3 text-text-secondary text-sm leading-relaxed">
+              <p>Bainbridge, L. (1983). "Ironies of Automation." <em>Automatica</em>, 19(6), 775-779.</p>
+              <p>Parasuraman, R. & Manzey, D. (2010). "Complacency and Bias in Human Use of Automation: An Attentional Integration." <em>Human Factors</em>, 52(3), 381-410.</p>
+              <p>Manzey, D. et al. (2012). "Human Performance Consequences of Automated Decision Aids." <em>Journal of Cognitive Engineering and Decision Making</em>, 6(1), 57-87.</p>
+              <p>Lee, J.D. & See, K.A. (2004). "Trust in Automation: Designing for Appropriate Reliance." <em>Human Factors</em>, 46(1), 50-80.</p>
+            </div>
+          </Disclosure>
+
+          <Disclosure title="Empirical AI coding studies (2023-2026)">
+            <div className="space-y-3 text-text-secondary text-sm leading-relaxed">
+              <p>Perry, N. et al. (2023). "Do Users Write More Insecure Code with AI Assistants?" Stanford University. <em>ACM CCS 2023</em>.</p>
+              <p>GitClear (2025). "AI Code Quality 2025 Research." Analysis of 211 million changed lines of code.</p>
+              <p>DORA/Google (2024, 2025). "Accelerate State of DevOps Report."</p>
+              <p>Peng, S., Kalliamvakou, E., Cihon, P., Demirer, M. et al. (2025). "The Effects of Generative AI on High Skilled Work: Evidence from Three Field Experiments with Software Developers." Microsoft Research/SSRN.</p>
+              <p>GitHub (2024). "Does GitHub Copilot Improve Code Quality?" Controlled trial with 202 developers and 1,293 blind code reviews.</p>
+              <p>GitHub (2024). "Research: Quantifying GitHub Copilot's Impact in the Enterprise with Accenture." Randomized controlled trial.</p>
+              <p>METR (2025). Becker, E., Rush, J., Barnes, A., Rein, D. "Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity." arXiv:2507.09089. RCT with 16 developers, 246 tasks.</p>
+              <p>Xu, H., Medappa, P., Tunc, M., Vroegindeweij, S., Fransoo, J. (2025/2026). "AI-Assisted Programming Decreases the Productivity of Experienced Developers." arXiv:2510.10165.</p>
+              <p>Anthropic (2024-2025). "AI Assistance and Coding Skills Formation." RCT with 52 engineers.</p>
+            </div>
+          </Disclosure>
+
+          <Disclosure title="Industry leader positions">
+            <div className="space-y-3 text-text-secondary text-sm leading-relaxed">
+              <p>Simon Willison, co-creator of Django. Golden rule: "I will not commit any code to my repository if I could not explain exactly what it does to somebody else."</p>
+              <p>Charity Majors, CTO of Honeycomb. "You cannot trust generated code." Seven years minimum to develop a competent senior engineer.</p>
+              <p>Kent Beck, creator of extreme programming. When writing costs approach zero, the bottleneck shifts to understanding, reviewing, and maintaining.</p>
+              <p>Boeckeler, B. (2025). Three timelines of AI-induced quality impact. Thoughtworks.</p>
+              <p>Doernenburg, E. (2026). AI agents and technical debt documentation. Thoughtworks.</p>
+              <p>Morris, K. (2026). Outside/In/On the Loop framework for human-AI collaboration. Thoughtworks.</p>
+              <p>Orosz, G. (2024-2025). The 70% problem. <em>The Pragmatic Engineer</em>.</p>
+            </div>
+          </Disclosure>
+
+          <Disclosure title="Adoption statistics">
+            <div className="space-y-3 text-text-secondary text-sm leading-relaxed">
+              <p>Stack Overflow Developer Survey 2025: 84% adoption, 33% trust (down from 43%).</p>
+              <p>Stack Overflow Developer Survey 2024: 62% currently using, 76% use or plan to use.</p>
+              <p>JetBrains Developer Ecosystem 2024: 69% tried ChatGPT for coding, 49% regular users.</p>
+              <p>GitHub Octoverse 2024: 92% using AI tools inside and outside work.</p>
+              <p>Bick, A., Blandin, A., Deming, D. (2024/2025). "The Rapid Adoption of Generative AI." NBER Working Paper 32966.</p>
+              <p>Brynjolfsson, E., Li, D., Raymond, L. (2023). "Generative AI at Work." NBER Working Paper 31161.</p>
+            </div>
+          </Disclosure>
+
+          <hr className="border-surface-light/20 my-14" />
+
+          <h2 className="text-2xl font-bold text-text-primary mb-4">Where this leaves us</h2>
+
+          <p>
+            The goal is not to be suspicious of AI tools. It is to be engaged with them. The engineer
+            who actively collaborates with AI, questioning, verifying, and learning, gets dramatically
+            better outcomes than the engineer who passively accepts. Both use the same tool. The difference
+            is entirely in the human's engagement.
+          </p>
+          <p>
+            84% of developers are using these tools. The ones who use them well will build better software
+            faster. The ones who use them passively will ship faster too, for a while, until the rework
+            catches up. The research is clear on which group wins over a full development cycle.
+          </p>
+          <p>
+            Pick your experience level. Install the config. Use it for a week before deciding whether
+            the friction is worth it. I think you will find it catches things you would have missed.
+          </p>
+
+        </div>
+      </div>
+    </article>
+  );
+};
+
+export default BlogPost_AIAssistedEngineering;
