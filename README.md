@@ -6,14 +6,15 @@ Personal portfolio and blog for Justin Rudisal, Senior Software Engineer special
 
 ## What this is
 
-A single-page portfolio site with a blog, built with React and deployed on Cloudflare Pages. It serves as my professional presence online: who I am, what I have built, what I think about, and how to reach me.
+A static portfolio site with a blog, built with Astro and deployed on Cloudflare Pages. Most of the site ships zero JavaScript. Interactive components (contact form, newsletter signup) load as React islands only when scrolled into view.
 
 ## Tech stack
 
-- **React 19** with React Router for page navigation
-- **Vite 8** for builds and dev server
+- **Astro 6** for static site generation and file-based routing
+- **React 19** for interactive islands (contact form, newsletter signup)
 - **Tailwind CSS 4** for styling
-- **Framer Motion** for scroll animations (with `prefers-reduced-motion` support)
+- **CSS IntersectionObserver** for scroll animations (with `prefers-reduced-motion` support)
+- **Vanilla JS** typewriter animation in the hero (no framework dependency)
 - **EmailJS** for contact form delivery (no backend required)
 - **Cloudflare Turnstile** for bot protection on the contact form
 - **Cloudflare Pages** for hosting, CDN, and SSL
@@ -22,10 +23,10 @@ A single-page portfolio site with a blog, built with React and deployed on Cloud
 
 ```
 src/
-  components/     Reusable UI components (Navbar, Hero, Footer, etc.)
-  pages/          Full-page views (HomePage, blog posts)
-  App.jsx         Router and layout
-  App.css         Theme tokens and global styles
+  components/     Astro components (.astro) and React islands (.tsx)
+  layouts/        BaseLayout and BlogLayout
+  pages/          File-based routing (index.astro, blog/*.astro)
+  styles/         Global CSS with Tailwind theme tokens
 public/
   _headers        Security headers for Cloudflare Pages
   resume.html     ATS-friendly resume (print to PDF)
@@ -57,7 +58,7 @@ npm install
 npm run dev
 ```
 
-Opens at `http://localhost:5173`.
+Opens at `http://localhost:4321`.
 
 ## Building
 

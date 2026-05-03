@@ -1,0 +1,187 @@
+---
+const navLinks = [
+  { href: '#hero', label: 'Home' },
+  { href: '#about', label: 'About' },
+  { href: '#blog', label: 'Blog' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#contact', label: 'Contact' },
+];
+
+const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
+---
+
+<a href="#main-content" class="skip-to-content">
+  Skip to main content
+</a>
+<nav
+  id="primary-nav"
+  class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent"
+  role="navigation"
+  aria-label="Primary navigation"
+>
+  <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+    <a
+      href={isHome ? '#hero' : '/'}
+      class="text-xl font-bold text-text-primary cursor-pointer hover:text-accent transition-colors duration-200 bg-transparent border-none focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded"
+      aria-label="Go to top of page"
+    >
+      <span class="font-mono text-accent">{'>'}</span> Justin Rudisal
+    </a>
+
+    <ul class="hidden md:flex items-center space-x-8" role="list">
+      {navLinks.map(({ href, label }) => (
+        <li>
+          <a
+            href={isHome ? href : `/${href}`}
+            class="nav-link text-text-secondary hover:text-text-primary cursor-pointer transition-colors duration-200 text-sm font-medium tracking-wide uppercase"
+            data-section={href.replace('#', '')}
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+      <li>
+        <a
+          href="/resume.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-text-secondary hover:text-text-primary cursor-pointer transition-colors duration-200 text-sm font-medium tracking-wide uppercase"
+        >
+          Resume
+        </a>
+      </li>
+    </ul>
+
+    <button
+      id="mobile-toggle"
+      class="md:hidden text-text-primary p-2 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Open navigation menu"
+    >
+      <svg
+        id="hamburger-icon"
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg
+        id="close-icon"
+        class="w-6 h-6 hidden"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden bg-surface-darkest/98 backdrop-blur-md border-t border-surface-light/20"
+    role="menu"
+  >
+    <ul class="flex flex-col items-center py-4 space-y-4" role="list">
+      {navLinks.map(({ href, label }) => (
+        <li role="none">
+          <a
+            href={isHome ? href : `/${href}`}
+            class="mobile-nav-link text-text-secondary hover:text-text-primary cursor-pointer transition-colors duration-200 text-base font-medium tracking-wide uppercase"
+            role="menuitem"
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+      <li role="none">
+        <a
+          href="/resume.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-text-secondary hover:text-text-primary cursor-pointer transition-colors duration-200 text-base font-medium tracking-wide uppercase"
+          role="menuitem"
+        >
+          Resume
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const nav = document.getElementById('primary-nav');
+  const toggle = document.getElementById('mobile-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const hamburger = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  let mobileOpen = false;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      nav?.classList.add('bg-surface-darkest/95', 'backdrop-blur-md', 'shadow-lg', 'shadow-black/20');
+      nav?.classList.remove('bg-transparent');
+    } else {
+      nav?.classList.remove('bg-surface-darkest/95', 'backdrop-blur-md', 'shadow-lg', 'shadow-black/20');
+      nav?.classList.add('bg-transparent');
+    }
+  }, { passive: true });
+
+  function setMobileOpen(open: boolean) {
+    mobileOpen = open;
+    if (open) {
+      menu?.classList.remove('hidden');
+      hamburger?.classList.add('hidden');
+      closeIcon?.classList.remove('hidden');
+      toggle?.setAttribute('aria-expanded', 'true');
+      toggle?.setAttribute('aria-label', 'Close navigation menu');
+      document.body.style.overflow = 'hidden';
+    } else {
+      menu?.classList.add('hidden');
+      hamburger?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      toggle?.setAttribute('aria-expanded', 'false');
+      toggle?.setAttribute('aria-label', 'Open navigation menu');
+      document.body.style.overflow = '';
+    }
+  }
+
+  toggle?.addEventListener('click', () => setMobileOpen(!mobileOpen));
+
+  document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+    link.addEventListener('click', () => setMobileOpen(false));
+  });
+
+  // Active section highlighting via IntersectionObserver
+  const sections = ['hero', 'about', 'blog', 'projects', 'contact'];
+  const navLinksEls = document.querySelectorAll('.nav-link');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinksEls.forEach((link) => {
+            if (link.getAttribute('data-section') === id) {
+              link.classList.add('!text-accent');
+            } else {
+              link.classList.remove('!text-accent');
+            }
+          });
+        }
+      });
+    },
+    { rootMargin: '-80px 0px -60% 0px', threshold: 0 }
+  );
+
+  sections.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+</script>

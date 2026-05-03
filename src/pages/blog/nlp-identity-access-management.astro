@@ -1,0 +1,144 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+
+export const meta = {
+  title: 'Applying NLP and AI Agents to Identity and Access Management',
+  date: '2026-04-15',
+  readTime: '8 min',
+  description: 'A graduate presentation on using NER, BERT, RAG, and AI agents to rethink how identity and access management systems work. Plus an honest take on where AI belongs.',
+  excerpt: 'A graduate presentation on using NER, BERT, RAG, and AI agents to rethink how identity and access management systems work. Plus an honest take on where AI belongs.',
+  slug: 'nlp-identity-access-management',
+  published: true,
+};
+---
+
+<BlogLayout meta={meta}>
+  <Fragment slot="subtitle">
+    <p class="text-lg text-text-secondary leading-relaxed">
+      Just finished a presentation for my graduate NLP course at Florida Atlantic University
+      that I'm pretty excited about. It sits right at the intersection of the two things I
+      spend most of my time on: AI and identity security.
+    </p>
+  </Fragment>
+
+  <h2 class="text-2xl font-bold text-text-primary mt-12 mb-4">The talk</h2>
+
+  <p>
+    It's about 20 minutes. If you work in identity, security, or NLP, I think it's
+    worth your time. If you'd rather read than watch, the summary is below.
+  </p>
+
+  <!-- YouTube embed -->
+  <div class="my-8 aspect-video rounded-xl overflow-hidden border border-surface-light/10">
+    <iframe
+      class="w-full h-full"
+      src="https://www.youtube.com/embed/dVZ4UK9W2tc"
+      title="Applying NLP and AI Agents to Identity and Access Management"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      loading="lazy"
+    ></iframe>
+  </div>
+
+  <h2 class="text-2xl font-bold text-text-primary mt-12 mb-4">What I cover</h2>
+
+  <p>
+    Most IAM systems are still built around manual workflows and static rules.
+    Access requests go through forms and approval chains. Policies live in documents that nobody reads
+    until an audit. Anomaly detection, if it exists at all, is threshold-based and noisy. And when
+    someone asks "what groups do I need access to for this project," the answer is usually "ask
+    around" or "dig through a wiki."
+  </p>
+  <p>
+    NLP and AI agents can change a lot of that. Not in some vague future-state way. The pieces
+    exist right now.
+  </p>
+  <p>
+    The presentation walks through four applications:
+  </p>
+  <ul class="list-disc pl-6 space-y-2 my-4">
+    <li>
+      <strong class="text-text-primary">NER for access requests.</strong> Instead of
+      filling out a form with dropdowns, you write "I need read access to the payments database for
+      the Q3 audit" and the system extracts the resource, permission level, and justification
+      automatically.
+    </li>
+    <li>
+      <strong class="text-text-primary">BERT for policy extraction.</strong> Most
+      organizations have access policies buried in PDFs and Confluence pages. A fine-tuned model
+      can pull structured ABAC rules out of that unstructured text and flag conflicts between them.
+    </li>
+    <li>
+      <strong class="text-text-primary">Anomaly detection in audit logs.</strong> Not just
+      "this user logged in at 3am" but "this user's access pattern shifted in a way that doesn't
+      match their role or their team's normal behavior." That's a different kind of signal than
+      what threshold-based systems catch.
+    </li>
+    <li>
+      <strong class="text-text-primary">RAG-powered identity assistants.</strong> Not a
+      chatbot that says "please contact your administrator." An assistant that actually reads your
+      policies, your group definitions, and your onboarding docs, then gives a real answer with
+      citations you can verify.
+    </li>
+  </ul>
+  <p>
+    On the tooling side, I cover spaCy for entity recognition, LangChain for agent
+    orchestration, Hugging Face for transformer models, vector databases for retrieval, and how
+    it all fits together architecturally.
+  </p>
+
+  <h2 class="text-2xl font-bold text-text-primary mt-12 mb-4">The honest part</h2>
+
+  <p>
+    A lot of this is pie in the sky right now. This isn't how IAM works today at most companies.
+    Access management is still heavily manual, heavily form-driven, and heavily dependent on
+    tribal knowledge about who owns what and who approves what.
+  </p>
+  <p>
+    But it's where I think the field needs to go. And honestly, that's a big part of why I'm
+    doing a master's in AI while working full-time as an identity security engineer. I've been
+    chipping away at the degree one class per semester so I don't lose my mind juggling work and
+    life, but the slow pace has actually been a good thing. It gives me time to sit with these
+    ideas and think about how they'd actually hold up in production, especially while everything
+    in the AI world keeps changing on a weekly basis.
+  </p>
+
+  <h2 class="text-2xl font-bold text-text-primary mt-12 mb-4">Build smarter tools, not fewer people</h2>
+
+  <p>
+    I want to say something that matters to me, because I think it gets lost in the hype cycle.
+  </p>
+  <p>
+    AI is genuinely good at solving hard engineering problems. Automating tedious work. Making
+    systems smarter. I use these tools every day and I believe in what they can do when you stay
+    engaged with the output. But I also think passive adoption at the organizational level erodes
+    the people that make teams work.
+  </p>
+  <p>
+    AI should shift how we work, not reduce who does the work. Handle the repetitive grind, yes.
+    Sit at the table when we're thinking through architecture and design decisions, absolutely.
+    But as another voice, not a replacement.
+  </p>
+  <p>
+    There's a real conversation happening right now about where AI belongs. For me the answer
+    is clear. Infrastructure. Security. The operational gaps that slow teams down. Build smarter
+    tools, not fewer people. That's the kind of AI work I want to do, and this presentation is
+    me starting to connect those dots publicly.
+  </p>
+
+  <h2 class="text-2xl font-bold text-text-primary mt-12 mb-4">Want to talk about it?</h2>
+
+  <p>
+    If you're already applying NLP or AI agents to identity, access management, or security
+    operations, I genuinely want to hear about it. Reach out through the contact form on this
+    site or find me on{' '}
+    <a
+      href="https://www.linkedin.com/in/justinrudisal/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-accent hover:text-text-primary transition-colors duration-200"
+    >
+      LinkedIn
+    </a>.
+  </p>
+</BlogLayout>

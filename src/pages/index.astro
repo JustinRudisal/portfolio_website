@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+import About from '../components/About.astro';
+import Blog from '../components/Blog.astro';
+import Projects from '../components/Projects.astro';
+import AnimatedSection from '../components/AnimatedSection.astro';
+import ContactForm from '../components/ContactForm.tsx';
+import Footer from '../components/Footer.astro';
+
+const siteUrl = 'https://justinrudisal.com';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  dateCreated: '2026-05-01T00:00:00-04:00',
+  dateModified: '2026-05-03T00:00:00-04:00',
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Justin Rudisal',
+    description: 'Senior Software Engineer specializing in Identity and Access Management',
+    image: `${siteUrl}/logo512.png`,
+    url: siteUrl,
+    sameAs: [
+      'https://www.linkedin.com/in/justinrudisal/',
+      'https://github.com/JustinRudisal',
+    ],
+  },
+};
+---
+
+<BaseLayout
+  title="Justin Rudisal - Senior Software Engineer"
+  description="Portfolio and blog for Justin Rudisal, Senior Software Engineer specializing in Identity and Access Management at Disney. Building scalable, secure, and thoughtful software."
+  jsonLd={jsonLd}
+>
+  <Navbar slot="navbar" />
+
+  <Hero />
+  <WaveDivider fromColor="#0f172a" toColor="#1e293b" />
+  <About />
+  <WaveDivider fromColor="#1e293b" toColor="#0f172a" />
+  <Blog />
+  <WaveDivider fromColor="#0f172a" toColor="#1e293b" />
+  <Projects />
+  <WaveDivider fromColor="#1e293b" toColor="#0f172a" />
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 sm:py-28 bg-surface-dark" aria-labelledby="contact-heading">
+    <div class="max-w-2xl mx-auto px-6">
+      <AnimatedSection>
+        <h2
+          id="contact-heading"
+          class="text-3xl sm:text-4xl font-bold text-text-primary mb-4 text-center"
+        >
+          Get In Touch
+        </h2>
+        <div class="w-16 h-1 bg-accent mx-auto mb-4 rounded-full" aria-hidden="true"></div>
+        <p class="text-text-secondary text-center mb-12 max-w-md mx-auto">
+          Have a question or want to collaborate? Send me a message and I will get back to you.
+        </p>
+      </AnimatedSection>
+
+      <AnimatedSection delay={0.1}>
+        <ContactForm client:visible />
+      </AnimatedSection>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

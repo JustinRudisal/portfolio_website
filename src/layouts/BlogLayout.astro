@@ -1,0 +1,118 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import ShareBar from '../components/ShareBar.astro';
+import NewsletterSignup from '../components/NewsletterSignup.tsx';
+
+interface Props {
+  meta: {
+    title: string;
+    date: string;
+    readTime: string;
+    description: string;
+    slug: string;
+    published: boolean;
+  };
+}
+
+const { meta } = Astro.props;
+
+const siteUrl = 'https://justinrudisal.com';
+const postUrl = `${siteUrl}/blog/${meta.slug}`;
+const publishedIso = `${meta.date}T00:00:00-04:00`;
+
+const formatDate = (dateStr: string) => {
+  const date = new Date(dateStr + 'T00:00:00');
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: meta.title,
+  description: meta.description,
+  datePublished: publishedIso,
+  dateModified: publishedIso,
+  author: {
+    '@type': 'Person',
+    name: 'Justin Rudisal',
+    url: siteUrl,
+    sameAs: [
+      'https://www.linkedin.com/in/justinrudisal/',
+      'https://github.com/JustinRudisal',
+    ],
+  },
+  publisher: {
+    '@type': 'Person',
+    name: 'Justin Rudisal',
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': postUrl,
+  },
+  image: `${siteUrl}/logo512.png`,
+  url: postUrl,
+};
+---
+
+<BaseLayout
+  title={meta.title}
+  description={meta.description}
+  ogType="article"
+  canonicalPath={`/blog/${meta.slug}`}
+  publishedTime={publishedIso}
+  modifiedTime={publishedIso}
+  jsonLd={jsonLd}
+>
+  <a slot="skip-link" href="#main-content" class="skip-to-content">
+    Skip to main content
+  </a>
+  <Navbar slot="navbar" />
+
+  <article class="min-h-screen bg-surface pt-24 pb-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <a
+        href="/"
+        class="inline-flex items-center gap-1.5 text-text-muted hover:text-accent transition-colors duration-200 text-sm mb-10 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+        Back to home
+      </a>
+
+      <header class="mb-12">
+        <div class="flex items-center gap-3 text-xs text-text-muted mb-4">
+          <time datetime={meta.date}>{formatDate(meta.date)}</time>
+          <span aria-hidden="true" class="w-1 h-1 rounded-full bg-surface-lighter"></span>
+          <span>{meta.readTime} read</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-bold text-text-primary leading-tight mb-6">
+          {meta.title}
+        </h1>
+        <slot name="subtitle" />
+      </header>
+
+      <hr class="border-surface-light/20 mb-10" />
+
+      <div class="space-y-6 text-text-secondary leading-relaxed">
+        <slot />
+
+        <hr class="border-surface-light/20 my-14" />
+
+        <ShareBar title={meta.title} url={postUrl} />
+
+        <div class="mt-10">
+          <NewsletterSignup client:visible />
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <Footer slot="footer" />
+</BaseLayout>
