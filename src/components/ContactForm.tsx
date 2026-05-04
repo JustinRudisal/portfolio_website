@@ -126,7 +126,7 @@ const ContactForm = () => {
     }
   };
 
-  const inputClasses = 'w-full px-4 py-3 rounded-lg bg-surface-dark border border-surface-light/20 text-text-primary placeholder-text-muted transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent';
+  const inputClasses = 'w-full px-4 py-3 rounded-lg bg-surface-dark border border-surface-light/40 text-text-primary placeholder-text-muted transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent';
   const errorClasses = 'text-red-400 text-sm mt-1.5 flex items-center gap-1.5';
 
   if (status === 'sent') {

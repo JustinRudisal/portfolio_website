@@ -39,7 +39,7 @@ const NewsletterSignup = () => {
   }
 
   return (
-    <div className="border border-surface-light/20 rounded-xl p-6 bg-surface-dark/50">
+    <div className="border border-surface-light/40 rounded-xl p-6 bg-surface-dark/50">
       <h3 className="text-text-primary font-semibold mb-1">Get notified of new posts</h3>
       <p className="text-text-secondary text-sm mb-4">
         No spam. Just a short email when I publish something new.
@@ -54,7 +54,7 @@ const NewsletterSignup = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="flex-grow px-4 py-2.5 rounded-lg bg-surface-dark border border-surface-light/20 text-text-primary placeholder-text-muted text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+          className="flex-grow px-4 py-2.5 rounded-lg bg-surface-dark border border-surface-light/40 text-text-primary placeholder-text-muted text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
           disabled={status === 'submitting'}
         />
         <button
