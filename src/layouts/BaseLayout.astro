@@ -3,6 +3,7 @@ interface Props {
   title: string;
   description: string;
   ogType?: string;
+  ogImagePath?: string;
   canonicalPath?: string;
   publishedTime?: string;
   modifiedTime?: string;
@@ -13,6 +14,7 @@ const {
   title,
   description,
   ogType = 'website',
+  ogImagePath,
   canonicalPath = '',
   publishedTime,
   modifiedTime,
@@ -21,7 +23,7 @@ const {
 
 const siteUrl = 'https://justinrudisal.com';
 const canonicalUrl = `${siteUrl}${canonicalPath}`;
-const ogImage = `${siteUrl}/logo512.png`;
+const ogImage = ogImagePath ? `${siteUrl}${ogImagePath}` : `${siteUrl}/logo512.png`;
 
 import '../styles/global.css';
 ---
@@ -55,7 +57,7 @@ import '../styles/global.css';
     {ogType === 'article' && <meta property="article:author" content={siteUrl} />}
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content={ogImagePath ? "summary_large_image" : "summary"} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />

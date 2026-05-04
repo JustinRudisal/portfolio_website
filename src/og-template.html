@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      background-color: #0f172a;
+      font-family: 'Inter', system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 80px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .accent-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #22d3ee 0%, #0e7490 100%);
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 600;
+      color: #22d3ee;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 24px;
+    }
+
+    .title {
+      font-size: 54px;
+      font-weight: 800;
+      color: #f1f5f9;
+      line-height: 1.15;
+      max-width: 1000px;
+    }
+
+    .subtitle {
+      font-size: 28px;
+      font-weight: 400;
+      color: #94a3b8;
+      line-height: 1.4;
+      margin-top: 20px;
+      max-width: 900px;
+    }
+
+    .meta {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .author {
+      font-size: 32px;
+      font-weight: 700;
+      color: #94a3b8;
+    }
+
+    .site {
+      font-size: 28px;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .corner-accent {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle at bottom right, rgba(34, 211, 238, 0.06) 0%, transparent 70%);
+    }
+  </style>
+</head>
+<body>
+  <div class="accent-line"></div>
+  <div class="corner-accent"></div>
+  <div class="tag" id="tag">Blog</div>
+  <h1 class="title" id="title">Title</h1>
+  <p class="subtitle" id="subtitle"></p>
+  <div class="meta">
+    <span class="author">Justin Rudisal</span>
+    <span class="site">justinrudisal.com</span>
+  </div>
+</body>
+</html>

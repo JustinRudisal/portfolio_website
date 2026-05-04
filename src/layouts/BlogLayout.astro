@@ -13,6 +13,7 @@ interface Props {
     description: string;
     slug: string;
     tags?: string[];
+    ogImage?: string;
     published: boolean;
   };
 }
@@ -65,6 +66,7 @@ const jsonLd = {
   title={meta.title}
   description={meta.description}
   ogType="article"
+  ogImagePath={meta.ogImage}
   canonicalPath={`/blog/${meta.slug}`}
   publishedTime={publishedIso}
   modifiedTime={publishedIso}
