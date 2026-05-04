@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Privacy Policy - Justin Rudisal"
+  description="How this site handles your data. Short version: it collects very little and tracks nothing."
+  canonicalPath="/privacy"
+>
+  <a slot="skip-link" href="#main-content" class="skip-to-content">
+    Skip to main content
+  </a>
+  <Navbar slot="navbar" />
+
+  <div class="min-h-screen bg-surface pt-24 pb-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <a
+        href="/"
+        class="inline-flex items-center gap-1.5 text-text-muted hover:text-accent transition-colors duration-200 text-sm mb-10 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+        Back to home
+      </a>
+
+      <header class="mb-12">
+        <h1 class="text-3xl sm:text-4xl font-bold text-text-primary leading-tight mb-4">
+          Privacy Policy
+        </h1>
+        <p class="text-text-secondary text-sm">
+          Last updated May 3, 2026
+        </p>
+      </header>
+
+      <hr class="border-surface-light/20 mb-10" />
+
+      <div class="space-y-10 text-text-secondary leading-relaxed">
+        <p>
+          This is a personal portfolio and blog. It doesn't use tracking pixels, doesn't set cookies
+          for analytics, and doesn't sell or share your data with anyone. Here's exactly what happens
+          when you visit.
+        </p>
+
+        <section>
+          <h2 class="text-xl font-semibold text-text-primary mb-3">Contact form</h2>
+          <p>
+            When you submit the contact form, your <strong class="text-text-primary">name</strong>,
+            <strong class="text-text-primary">email address</strong>, and
+            <strong class="text-text-primary">message</strong> are sent to me through
+            <a href="https://www.emailjs.com/docs/legal/privacy-policy/" class="text-accent hover:text-text-primary transition-colors duration-200" target="_blank" rel="noopener noreferrer">EmailJS</a>.
+            I use that information to reply to you and nothing else.
+          </p>
+          <p class="mt-3">
+            The form also uses
+            <a href="https://www.cloudflare.com/privacypolicy/" class="text-accent hover:text-text-primary transition-colors duration-200" target="_blank" rel="noopener noreferrer">Cloudflare Turnstile</a>
+            to verify you're a real person. Turnstile doesn't track you across sites and doesn't use cookies.
+          </p>
+          <p class="mt-3">
+            To prevent spam, the form stores a count of recent submissions in your browser's
+            <strong class="text-text-primary">localStorage</strong>. This data never leaves your device and
+            contains no personal information, just timestamps.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-text-primary mb-3">Newsletter</h2>
+          <p>
+            If you subscribe to the newsletter, your <strong class="text-text-primary">email address</strong>
+            is sent to
+            <a href="https://buttondown.com/legal/privacy" class="text-accent hover:text-text-primary transition-colors duration-200" target="_blank" rel="noopener noreferrer">Buttondown</a>,
+            which handles subscriptions and delivery. Every email includes an unsubscribe link.
+            You can also unsubscribe by contacting me directly.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-text-primary mb-3">Hosting and infrastructure</h2>
+          <p>
+            This site is hosted on
+            <a href="https://www.cloudflare.com/privacypolicy/" class="text-accent hover:text-text-primary transition-colors duration-200" target="_blank" rel="noopener noreferrer">Cloudflare Pages</a>.
+            Cloudflare may collect standard server logs (IP address, browser type, pages requested)
+            as part of operating their network. I don't have access to individual visitor logs.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-text-primary mb-3">Google Fonts</h2>
+          <p>
+            This site loads typefaces from Google Fonts. When a page loads, your browser connects to
+            Google's servers to download the font files, which means
+            <strong class="text-text-primary">your IP address is sent to Google</strong>.
+            Google's font API is designed to limit the collection of information, but you can read
+            <a href="https://developers.google.com/fonts/faq/privacy" class="text-accent hover:text-text-primary transition-colors duration-200" target="_blank" rel="noopener noreferrer">Google's privacy FAQ</a>
+            for the full details.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-text-primary mb-3">Analytics</h2>
+          <p>
+            This site uses
+            <a href="https://www.cloudflare.com/web-analytics/" class="text-accent hover:text-text-primary transition-colors duration-200" target="_blank" rel="noopener noreferrer">Cloudflare Web Analytics</a>
+            to understand which pages get traffic, where visitors come from, and basic performance
+            metrics. It collects aggregate, anonymous data including page views, referrers, country,
+            device type, browser, and operating system.
+          </p>
+          <p class="mt-3">
+            Cloudflare Web Analytics <strong class="text-text-primary">does not use cookies</strong>,
+            does not use localStorage, does not fingerprint visitors, and does not track individuals
+            across sessions or sites. There is no way for me to identify who you are from the data
+            it collects.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-text-primary mb-3">What this site doesn't do</h2>
+          <ul class="list-disc list-inside space-y-2 ml-1">
+            <li>No cookies (Turnstile and Cloudflare may set functional cookies, but I don't set any)</li>
+            <li>No advertising</li>
+            <li>No data sales or sharing with third parties for marketing</li>
+            <li>No fingerprinting or cross-site tracking</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-text-primary mb-3">Your rights</h2>
+          <p>
+            If you want me to delete any data I have about you (contact form messages, newsletter
+            subscription), just reach out through the
+            <a href="/#contact" class="text-accent hover:text-text-primary transition-colors duration-200">contact form</a>
+            or email me. I'll take care of it.
+          </p>
+          <p class="mt-3">
+            If you're in the EU, you have rights under GDPR including access, correction, deletion,
+            and portability of your personal data. If you're in California, you have similar rights
+            under the CCPA. Either way, contact me and I'll help.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-text-primary mb-3">Third-party services</h2>
+          <p>
+            For complete details on how each service handles data, here are their privacy policies:
+          </p>
+          <ul class="list-disc list-inside space-y-2 mt-3 ml-1">
+            <li>
+              <a href="https://www.cloudflare.com/privacypolicy/" class="text-accent hover:text-text-primary transition-colors duration-200" target="_blank" rel="noopener noreferrer">Cloudflare</a>
+              (hosting, CDN, Turnstile, Web Analytics)
+            </li>
+            <li>
+              <a href="https://www.emailjs.com/docs/legal/privacy-policy/" class="text-accent hover:text-text-primary transition-colors duration-200" target="_blank" rel="noopener noreferrer">EmailJS</a>
+              (contact form delivery)
+            </li>
+            <li>
+              <a href="https://buttondown.com/legal/privacy" class="text-accent hover:text-text-primary transition-colors duration-200" target="_blank" rel="noopener noreferrer">Buttondown</a>
+              (newsletter)
+            </li>
+            <li>
+              <a href="https://developers.google.com/fonts/faq/privacy" class="text-accent hover:text-text-primary transition-colors duration-200" target="_blank" rel="noopener noreferrer">Google Fonts</a>
+              (typeface delivery)
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-text-primary mb-3">Changes</h2>
+          <p>
+            If this policy changes in a meaningful way, I'll update the date at the top of the page.
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>
