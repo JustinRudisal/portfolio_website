@@ -53,27 +53,184 @@ const formatDate = (dateStr: string) => {
 
       <hr class="border-surface-light/20 mb-10" />
 
-      <div class="space-y-8">
-        {posts.map((post: any) => (
-          <a href={`/blog/${post.slug}`} class="block group focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded-xl">
-            <article class="rounded-xl border border-surface-light/10 hover:border-accent/20 p-6 transition-colors duration-200">
-              <div class="flex items-center gap-3 text-xs text-text-muted mb-3">
-                <time datetime={post.date}>{formatDate(post.date)}</time>
-                <span aria-hidden="true" class="w-1 h-1 rounded-full bg-surface-lighter"></span>
-                <span>{post.readTime} read</span>
-              </div>
-              <h2 class="text-xl font-semibold text-text-primary group-hover:text-accent transition-colors duration-200 mb-3">
-                {post.title}
-              </h2>
-              <p class="text-text-secondary text-sm leading-relaxed">
-                {post.excerpt}
-              </p>
-            </article>
-          </a>
-        ))}
+      <div id="search" class="mb-10"></div>
+
+      <div id="post-list">
+        <div class="space-y-8">
+          {posts.map((post: any) => (
+            <a href={`/blog/${post.slug}`} class="block group focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded-xl">
+              <article class="rounded-xl bg-surface-dark border border-surface-light/20 hover:border-accent/30 p-6 transition-colors duration-200">
+                <div class="flex items-center gap-3 text-xs text-text-muted mb-3">
+                  <time datetime={post.date}>{formatDate(post.date)}</time>
+                  <span aria-hidden="true" class="w-1 h-1 rounded-full bg-surface-lighter"></span>
+                  <span>{post.readTime} read</span>
+                </div>
+                <h2 class="text-xl font-semibold text-text-primary group-hover:text-accent transition-colors duration-200 mb-3">
+                  {post.title}
+                </h2>
+                <p class="text-text-secondary text-sm leading-relaxed mb-3">
+                  {post.excerpt}
+                </p>
+                {post.tags && post.tags.length > 0 && (
+                  <div class="flex flex-wrap gap-1.5">
+                    {post.tags.map((tag: string) => (
+                      <span class="px-2 py-0.5 rounded text-xs text-text-muted bg-surface-light/10">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </article>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   </div>
 
   <Footer slot="footer" />
 </BaseLayout>
+
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+<script is:inline src="/pagefind/pagefind-ui.js"></script>
+
+<style is:global>
+  .pagefind-ui {
+    --pagefind-ui-scale: 0.85;
+    --pagefind-ui-primary: #22d3ee;
+    --pagefind-ui-text: #f1f5f9;
+    --pagefind-ui-background: #1e293b;
+    --pagefind-ui-border: #334155;
+    --pagefind-ui-tag: #0f172a;
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 8px;
+    --pagefind-ui-font: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  .pagefind-ui .pagefind-ui__search-input {
+    font-weight: 400 !important;
+    color: #f1f5f9 !important;
+    background-color: #0f172a !important;
+    border: 1px solid #334155 !important;
+  }
+
+  .pagefind-ui .pagefind-ui__search-input::placeholder {
+    color: #8494a7 !important;
+    opacity: 0.6 !important;
+  }
+
+  .pagefind-ui .pagefind-ui__search-input:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px #22d3ee !important;
+    border-color: transparent !important;
+  }
+
+  .pagefind-ui .pagefind-ui__search-clear {
+    color: #8494a7 !important;
+    background-color: #0f172a !important;
+  }
+
+  .pagefind-ui .pagefind-ui__search-clear:focus {
+    outline: 2px solid #22d3ee !important;
+    outline-offset: 2px !important;
+  }
+
+  .pagefind-ui .pagefind-ui__drawer {
+    margin-top: 0.5rem;
+  }
+
+  .pagefind-ui .pagefind-ui__message {
+    color: #94a3b8;
+    font-weight: 500;
+  }
+
+  .pagefind-ui .pagefind-ui__result {
+    border-color: #334155;
+  }
+
+  .pagefind-ui .pagefind-ui__result-title .pagefind-ui__result-link {
+    color: #f1f5f9;
+    text-decoration: none;
+  }
+
+  .pagefind-ui .pagefind-ui__result-title .pagefind-ui__result-link:hover {
+    color: #22d3ee;
+  }
+
+  .pagefind-ui .pagefind-ui__result-excerpt {
+    color: #94a3b8;
+  }
+
+  .pagefind-ui mark {
+    color: #22d3ee;
+    background-color: transparent;
+    font-weight: 600;
+  }
+
+  .pagefind-ui .pagefind-ui__result-tag {
+    color: #8494a7;
+    background-color: #0f172a;
+  }
+
+  .pagefind-ui .pagefind-ui__filter-name {
+    color: #94a3b8;
+  }
+
+  .pagefind-ui .pagefind-ui__filter-label {
+    color: #94a3b8;
+  }
+
+  .pagefind-ui .pagefind-ui__filter-checkbox {
+    background-color: #0f172a;
+    border-color: #334155;
+  }
+
+  .pagefind-ui .pagefind-ui__filter-checkbox:checked {
+    background-color: #22d3ee;
+    border-color: #22d3ee;
+  }
+
+  .pagefind-ui .pagefind-ui__button {
+    color: #22d3ee;
+    background-color: #0f172a;
+    border-color: #334155;
+  }
+
+  .pagefind-ui .pagefind-ui__button:hover {
+    border-color: #22d3ee;
+  }
+</style>
+
+<script is:inline>
+  window.addEventListener('DOMContentLoaded', function () {
+    if (typeof PagefindUI === 'undefined') return;
+
+    new PagefindUI({
+      element: '#search',
+      showSubResults: false,
+      showImages: false,
+      openFilters: ['tag'],
+      showEmptyFilters: false,
+    });
+
+    var searchInput = document.querySelector('.pagefind-ui__search-input');
+    var postList = document.getElementById('post-list');
+
+    if (searchInput && postList) {
+      searchInput.addEventListener('input', function () {
+        if (searchInput.value.length > 0) {
+          postList.style.display = 'none';
+        } else {
+          postList.style.display = '';
+        }
+      });
+
+      var clearBtn = document.querySelector('.pagefind-ui__search-clear');
+      if (clearBtn) {
+        clearBtn.addEventListener('click', function () {
+          postList.style.display = '';
+        });
+      }
+    }
+  });
+</script>

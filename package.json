@@ -15,13 +15,14 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && pagefind --site dist",
     "preview": "astro preview",
     "resume": "node scripts/generate-resume-pdf.js",
     "resume:private": "node scripts/generate-resume-pdf.js --private"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.18",
+    "pagefind": "^1.5.2",
     "puppeteer": "^24.42.0",
     "tailwindcss": "^4.1.18"
   }

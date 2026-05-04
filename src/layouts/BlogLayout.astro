@@ -12,6 +12,7 @@ interface Props {
     readTime: string;
     description: string;
     slug: string;
+    tags?: string[];
     published: boolean;
   };
 }
@@ -74,16 +75,17 @@ const jsonLd = {
   </a>
   <Navbar slot="navbar" />
 
-  <article class="min-h-screen bg-surface pt-24 pb-20">
+  <article class="min-h-screen bg-surface pt-24 pb-20" data-pagefind-body>
     <div class="max-w-3xl mx-auto px-6">
       <a
-        href="/"
+        href="/blog/"
         class="inline-flex items-center gap-1.5 text-text-muted hover:text-accent transition-colors duration-200 text-sm mb-10 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded"
+        data-pagefind-ignore
       >
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
         </svg>
-        Back to home
+        Back to blog
       </a>
 
       <header class="mb-12">
@@ -95,6 +97,10 @@ const jsonLd = {
         <h1 class="text-3xl sm:text-4xl font-bold text-text-primary leading-tight mb-6">
           {meta.title}
         </h1>
+        {meta.tags && meta.tags.map((tag) => (
+          <span data-pagefind-filter="tag" class="sr-only">{tag}</span>
+        ))}
+        <time data-pagefind-sort="date" datetime={meta.date} class="sr-only">{meta.date}</time>
         <slot name="subtitle" />
       </header>
 

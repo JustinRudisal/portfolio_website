@@ -3,19 +3,13 @@ import AnimatedSection from './AnimatedSection.astro';
 
 const modules = import.meta.glob('../pages/blog/*.astro', { eager: true });
 
-const publishedPosts = Object.values(modules)
+const allPosts = Object.values(modules)
   .filter((mod: any) => mod.meta?.published)
   .sort((a: any, b: any) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime())
   .map((mod: any) => mod.meta);
 
-const placeholder = {
-  title: 'More on the way',
-  date: null,
-  excerpt: 'I write about software engineering, AI, identity security, and whatever else I find worth sharing. Stay tuned.',
-  readTime: '',
-  slug: null,
-  published: false,
-};
+const recentPosts = allPosts.slice(0, 3);
+const hasMore = allPosts.length > 3;
 
 const formatDate = (dateStr: string) => {
   const date = new Date(dateStr + 'T00:00:00');
@@ -43,10 +37,10 @@ const formatDate = (dateStr: string) => {
     </AnimatedSection>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {publishedPosts.map((post: any, index: number) => (
+      {recentPosts.map((post: any, index: number) => (
         <AnimatedSection delay={index * 0.1}>
           <a href={`/blog/${post.slug}`} class="block h-full focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded-xl">
-            <article class="group rounded-xl bg-surface-dark border border-surface-light/10 hover:border-accent/20 p-6 h-full flex flex-col transition-colors duration-200">
+            <article class="group rounded-xl bg-surface border border-surface-light/20 hover:border-accent/30 p-6 h-full flex flex-col transition-colors duration-200">
               <div class="flex items-center gap-3 text-xs text-text-muted mb-3">
                 <time datetime={post.date}>{formatDate(post.date)}</time>
                 {post.readTime && (
@@ -78,23 +72,20 @@ const formatDate = (dateStr: string) => {
           </a>
         </AnimatedSection>
       ))}
-
-      <!-- Placeholder card -->
-      <AnimatedSection delay={publishedPosts.length * 0.1}>
-        <article class="group rounded-xl bg-surface-dark border border-surface-light/10 opacity-60 p-6 h-full flex flex-col transition-colors duration-200">
-          <div class="flex items-center gap-3 text-xs text-text-muted mb-3">
-            <span>Coming soon</span>
-          </div>
-
-          <h3 class="text-lg font-semibold text-text-primary mb-3">
-            {placeholder.title}
-          </h3>
-
-          <p class="text-text-secondary text-sm leading-relaxed mb-4 flex-grow">
-            {placeholder.excerpt}
-          </p>
-        </article>
-      </AnimatedSection>
     </div>
+
+    <AnimatedSection delay={recentPosts.length * 0.1}>
+      <div class="text-center mt-10">
+        <a
+          href="/blog/"
+          class="inline-flex items-center gap-2 border-2 border-accent text-accent hover:bg-accent hover:text-surface-dark px-6 py-3 rounded-lg font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+        >
+          View all posts
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+      </div>
+    </AnimatedSection>
   </div>
 </section>
