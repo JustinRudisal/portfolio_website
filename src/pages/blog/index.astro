@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const modules = import.meta.glob('./*.astro', { eager: true });
+
+const posts = Object.values(modules)
+  .filter((mod: any) => mod.meta?.published)
+  .sort((a: any, b: any) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime())
+  .map((mod: any) => mod.meta);
+
+const formatDate = (dateStr: string) => {
+  const date = new Date(dateStr + 'T00:00:00');
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+};
+---
+
+<BaseLayout
+  title="Blog - Justin Rudisal"
+  description="Thoughts on software engineering, AI, security, and the trends shaping our industry."
+  canonicalPath="/blog"
+>
+  <a slot="skip-link" href="#main-content" class="skip-to-content">
+    Skip to main content
+  </a>
+  <Navbar slot="navbar" />
+
+  <div class="min-h-screen bg-surface pt-24 pb-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <a
+        href="/"
+        class="inline-flex items-center gap-1.5 text-text-muted hover:text-accent transition-colors duration-200 text-sm mb-10 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+        Back to home
+      </a>
+
+      <header class="mb-12">
+        <h1 class="text-3xl sm:text-4xl font-bold text-text-primary leading-tight mb-4">
+          Blog
+        </h1>
+        <p class="text-text-secondary">
+          Thoughts on software engineering, AI, security, and the trends shaping our industry.
+        </p>
+      </header>
+
+      <hr class="border-surface-light/20 mb-10" />
+
+      <div class="space-y-8">
+        {posts.map((post: any) => (
+          <a href={`/blog/${post.slug}`} class="block group focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded-xl">
+            <article class="rounded-xl border border-surface-light/10 hover:border-accent/20 p-6 transition-colors duration-200">
+              <div class="flex items-center gap-3 text-xs text-text-muted mb-3">
+                <time datetime={post.date}>{formatDate(post.date)}</time>
+                <span aria-hidden="true" class="w-1 h-1 rounded-full bg-surface-lighter"></span>
+                <span>{post.readTime} read</span>
+              </div>
+              <h2 class="text-xl font-semibold text-text-primary group-hover:text-accent transition-colors duration-200 mb-3">
+                {post.title}
+              </h2>
+              <p class="text-text-secondary text-sm leading-relaxed">
+                {post.excerpt}
+              </p>
+            </article>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

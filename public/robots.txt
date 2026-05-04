@@ -72,4 +72,4 @@ Disallow: /
 User-agent: Perplexity-User
 Disallow: /
 
-Sitemap: https://justinrudisal.com/sitemap.xml
+Sitemap: https://justinrudisal.com/sitemap-index.xml
