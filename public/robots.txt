@@ -1,4 +1,75 @@
+# Search engines and AI search: allowed
+# AI training and AI assistants: blocked
+#
+# Cloudflare AI Scrapers dashboard provides edge enforcement.
+# This file signals intent as a fallback layer.
+
 User-agent: *
+Content-Signal: search=yes,ai-input=yes,ai-train=no
 Allow: /
+
+# AI training crawlers
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Claude-User
+Disallow: /
+
+User-agent: Claude-SearchBot
+Disallow: /
+
+User-agent: CloudflareBrowserRenderingCrawler
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Google-CloudVertexBot
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: Meta-ExternalFetcher
+Disallow: /
+
+User-agent: facebookexternalhit
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: TikTokSpider
+Disallow: /
+
+User-agent: Timpibot
+Disallow: /
+
+User-agent: Manus-User
+Disallow: /
+
+User-agent: MistralAI-User
+Disallow: /
+
+User-agent: Perplexity-User
+Disallow: /
 
 Sitemap: https://justinrudisal.com/sitemap.xml
