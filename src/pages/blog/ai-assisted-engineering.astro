@@ -211,45 +211,52 @@ export const meta = {
       </thead>
       <tbody>
         <tr class="border-t-2 border-accent/50">
-          <td class="px-4 py-3 font-semibold text-text-primary" rowspan="4">Claude Code</td>
+          <td class="px-4 py-3 font-semibold text-text-primary">Claude Code</td>
           <td class="px-4 py-3"><code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">~/.claude/CLAUDE.md</code></td>
-          <td class="px-4 py-3">Personal, applies to all projects</td>
+          <td class="px-4 py-3">Personal, all projects</td>
         </tr>
         <tr class="border-t border-surface-light/10">
-          <td class="px-4 py-3"><code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">./CLAUDE.md</code> or <code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">./.claude/CLAUDE.md</code></td>
-          <td class="px-4 py-3">Project, committed to source control</td>
+          <td class="px-4 py-3 font-semibold text-text-primary">Claude Code</td>
+          <td class="px-4 py-3"><code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">./CLAUDE.md</code></td>
+          <td class="px-4 py-3">Project, version controlled</td>
         </tr>
         <tr class="border-t border-surface-light/10">
+          <td class="px-4 py-3 font-semibold text-text-primary">Claude Code</td>
           <td class="px-4 py-3"><code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">./CLAUDE.local.md</code></td>
           <td class="px-4 py-3">Personal project overrides (gitignored)</td>
         </tr>
         <tr class="border-t border-surface-light/10">
+          <td class="px-4 py-3 font-semibold text-text-primary">Claude Code</td>
           <td class="px-4 py-3"><code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">.claude/rules/*.md</code></td>
-          <td class="px-4 py-3">Path-scoped rules (load conditionally based on file globs)</td>
+          <td class="px-4 py-3">Path-scoped (conditional on file globs)</td>
         </tr>
         <tr class="border-t-2 border-accent/50">
-          <td class="px-4 py-3 font-semibold text-text-primary" rowspan="3">Cursor</td>
+          <td class="px-4 py-3 font-semibold text-text-primary">Cursor</td>
           <td class="px-4 py-3"><code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">.cursor/rules/*.mdc</code></td>
-          <td class="px-4 py-3">Project rules with frontmatter (glob targeting, auto-apply modes)</td>
+          <td class="px-4 py-3">Project rules (glob targeting, auto-apply)</td>
         </tr>
         <tr class="border-t border-surface-light/10">
+          <td class="px-4 py-3 font-semibold text-text-primary">Cursor</td>
           <td class="px-4 py-3">User Rules (Settings UI)</td>
-          <td class="px-4 py-3">Personal, applies to all projects</td>
+          <td class="px-4 py-3">Personal, all projects</td>
         </tr>
         <tr class="border-t border-surface-light/10">
+          <td class="px-4 py-3 font-semibold text-text-primary">Cursor</td>
           <td class="px-4 py-3">Team Rules (Dashboard)</td>
           <td class="px-4 py-3">Organization-wide (paid plans)</td>
         </tr>
         <tr class="border-t-2 border-accent/50">
-          <td class="px-4 py-3 font-semibold text-text-primary" rowspan="3">GitHub Copilot</td>
+          <td class="px-4 py-3 font-semibold text-text-primary">GitHub Copilot</td>
           <td class="px-4 py-3"><code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">.github/copilot-instructions.md</code></td>
           <td class="px-4 py-3">Repository-level, always-on</td>
         </tr>
         <tr class="border-t border-surface-light/10">
+          <td class="px-4 py-3 font-semibold text-text-primary">GitHub Copilot</td>
           <td class="px-4 py-3"><code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">.github/instructions/*.instructions.md</code></td>
-          <td class="px-4 py-3">Path-specific (glob patterns in frontmatter)</td>
+          <td class="px-4 py-3">Path-specific (glob patterns)</td>
         </tr>
         <tr class="border-t border-surface-light/10">
+          <td class="px-4 py-3 font-semibold text-text-primary">GitHub Copilot</td>
           <td class="px-4 py-3">Organization settings</td>
           <td class="px-4 py-3">Org-wide (GA since April 2026)</td>
         </tr>
