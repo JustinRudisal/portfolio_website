@@ -5,7 +5,7 @@ import Disclosure from '../../components/Disclosure.astro';
 export const meta = {
   title: 'AI-Assisted Engineering: A Practical Guide to Using AI Coding Tools Without Losing Your Edge',
   date: '2026-05-02',
-  readTime: '25 min',
+  readTime: '30 min',
   description: 'AI coding assistants are the biggest productivity shift in a decade. The research on how to use them well, and what happens when you do not, is clearer than most teams realize.',
   excerpt: 'AI coding assistants are the biggest productivity shift in a decade. The research on how to use them well, and what happens when you do not, is clearer than most teams realize.',
   slug: 'ai-assisted-engineering',
@@ -192,21 +192,100 @@ export const meta = {
   <h3 class="text-xl font-semibold text-text-primary mt-10 mb-3">Encoding practices into your tools</h3>
 
   <p>
-    Most AI coding assistants support some form of instruction file that shapes how the tool
-    behaves. Claude Code reads a <code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">CLAUDE.md</code> file.
-    Cursor uses <code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">.cursorrules</code>.
-    Copilot supports <code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">.github/copilot-instructions.md</code> at
-    the repo level. The file names differ. The concept is the same: you define how the AI interacts
-    with you, what it checks, when it asks questions, and when it shuts up and trusts your judgment.
+    Most AI coding assistants now support layered instruction architectures that shape how the
+    tool behaves. These are not single configuration files anymore. They are hierarchies,
+    designed so that organizations, teams, and individuals can each define rules at the
+    appropriate scope. The file names differ across tools, but the concept is the same: you
+    define how the AI interacts with you, what it checks, when it asks questions, and when it
+    shuts up and trusts your judgment.
+  </p>
+
+  <div class="overflow-x-auto my-6">
+    <table class="w-full text-sm border border-surface-light/20 rounded-lg overflow-hidden">
+      <thead>
+        <tr class="bg-surface-dark/50">
+          <th class="px-4 py-3 text-left text-text-primary font-semibold">Tool</th>
+          <th class="px-4 py-3 text-left text-text-primary font-semibold">Instruction layers</th>
+          <th class="px-4 py-3 text-left text-text-primary font-semibold">Scope</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t-2 border-accent/50">
+          <td class="px-4 py-3 font-semibold text-text-primary" rowspan="4">Claude Code</td>
+          <td class="px-4 py-3"><code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">~/.claude/CLAUDE.md</code></td>
+          <td class="px-4 py-3">Personal, applies to all projects</td>
+        </tr>
+        <tr class="border-t border-surface-light/10">
+          <td class="px-4 py-3"><code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">./CLAUDE.md</code> or <code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">./.claude/CLAUDE.md</code></td>
+          <td class="px-4 py-3">Project, committed to source control</td>
+        </tr>
+        <tr class="border-t border-surface-light/10">
+          <td class="px-4 py-3"><code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">./CLAUDE.local.md</code></td>
+          <td class="px-4 py-3">Personal project overrides (gitignored)</td>
+        </tr>
+        <tr class="border-t border-surface-light/10">
+          <td class="px-4 py-3"><code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">.claude/rules/*.md</code></td>
+          <td class="px-4 py-3">Path-scoped rules (load conditionally based on file globs)</td>
+        </tr>
+        <tr class="border-t-2 border-accent/50">
+          <td class="px-4 py-3 font-semibold text-text-primary" rowspan="3">Cursor</td>
+          <td class="px-4 py-3"><code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">.cursor/rules/*.mdc</code></td>
+          <td class="px-4 py-3">Project rules with frontmatter (glob targeting, auto-apply modes)</td>
+        </tr>
+        <tr class="border-t border-surface-light/10">
+          <td class="px-4 py-3">User Rules (Settings UI)</td>
+          <td class="px-4 py-3">Personal, applies to all projects</td>
+        </tr>
+        <tr class="border-t border-surface-light/10">
+          <td class="px-4 py-3">Team Rules (Dashboard)</td>
+          <td class="px-4 py-3">Organization-wide (paid plans)</td>
+        </tr>
+        <tr class="border-t-2 border-accent/50">
+          <td class="px-4 py-3 font-semibold text-text-primary" rowspan="3">GitHub Copilot</td>
+          <td class="px-4 py-3"><code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">.github/copilot-instructions.md</code></td>
+          <td class="px-4 py-3">Repository-level, always-on</td>
+        </tr>
+        <tr class="border-t border-surface-light/10">
+          <td class="px-4 py-3"><code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">.github/instructions/*.instructions.md</code></td>
+          <td class="px-4 py-3">Path-specific (glob patterns in frontmatter)</td>
+        </tr>
+        <tr class="border-t border-surface-light/10">
+          <td class="px-4 py-3">Organization settings</td>
+          <td class="px-4 py-3">Org-wide (GA since April 2026)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    All three tools now support multiple layers that combine additively. A personal configuration
+    defines your baseline working agreement. A project configuration adds codebase-specific rules
+    (committed to source control so the whole team shares them). Path-scoped rules let you apply
+    different standards to different parts of the codebase without loading irrelevant context into
+    every session.
   </p>
   <p>
-    Think of it as a working agreement between you and the tool. Without one, the AI defaults to
-    being helpful and agreeable, which sounds great until you realize "helpful and agreeable" means
-    "generates code without questioning whether you understand it." That is how passive usage starts.
+    A note on Cursor specifically: if you have seen references to
+    <code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">.cursorrules</code>,
+    that is a legacy format from before January 2025. It still technically loads in some contexts
+    but is officially deprecated and unreliable in newer versions. The replacement is individual
+    rule files in <code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">.cursor/rules/</code> with
+    YAML frontmatter that controls when each rule activates. Cursor also supports
+    <code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">AGENTS.md</code> in the
+    project root as a simpler, cross-tool-compatible alternative.
   </p>
   <p>
-    The configuration file at the end of this article encodes everything discussed below. You can
-    copy it, customize it, and start using it today. But first, the ideas behind it.
+    Think of these instruction files as a working agreement between you and the tool. Without one,
+    the AI defaults to being helpful and agreeable, which sounds great until you realize "helpful
+    and agreeable" means "generates code without questioning whether you understand it." That is
+    how passive usage starts.
+  </p>
+  <p>
+    The configuration file at the end of this article encodes everything discussed below. It is
+    written for Claude Code's <code class="text-accent bg-accent/10 px-1.5 py-0.5 rounded text-sm">~/.claude/CLAUDE.md</code>
+    (the personal layer that follows you across all projects), but the principles translate
+    directly to any tool that supports instruction files. For tools that do not support them at
+    all, these practices still apply. You just have to enforce them yourself.
   </p>
 
   <h3 class="text-xl font-semibold text-text-primary mt-10 mb-3">Experience-calibrated friction</h3>
@@ -378,6 +457,35 @@ If the instruction cannot be verified against specific acceptance criteria
 When you encounter anything unexpected: stop immediately. Explain the situation.
 Make a recommendation. Wait for direction. Never push forward through ambiguity.
 
+### Present Options, Then Recommend
+When multiple approaches exist: present each option with its trade-offs.
+Explicitly state what is GIVEN UP with each choice, not just what is gained.
+Give your recommendation with rationale. Let the user make the final call.
+
+## Communication Style
+
+### Narrate Before Changing
+When reading code before editing, explain what you found: the structure, the
+relevant patterns, and what matters for the current task. Do not silently read
+and change. This converts the monitoring task (hard for humans, per Bainbridge)
+into a comprehension task (easier for humans). If your narration contains a
+misunderstanding, the user can catch it before it becomes a bug.
+
+### Flag Unfamiliar Patterns
+If your solution uses a pattern, library, or concept that does not appear in
+the existing codebase and has not been referenced in this conversation,
+explicitly flag it: what it is, why it fits here, and when it would be the
+wrong choice.
+
+### Calibrate Confidence
+When you are uncertain, say so explicitly. Do not hedge with soft language.
+State your confidence directly:
+- "I am confident this is correct because [reason]."
+- "I am not sure about this. My reasoning is [X] but you should verify [Y]."
+- "I do not know. Here is how I would find out: [approach]."
+Never present uncertain output with the same tone as certain output. The user
+must be able to distinguish when to trust and when to verify.
+
 ## Comprehension Enforcement
 
 ### Plan Approval Gate
@@ -410,12 +518,38 @@ Boilerplate, formatting, CRUD, test fixtures, docs.
 Narrate, present, confirm.
 
 ## Code Quality
+
+### Universal Rules
 - Follow established patterns in the existing codebase.
-- Check for existing implementations before generating new utilities.
 - No debug print statements in committed code.
+- Logging must be structured and useful for observability.
+- No overly complex solutions. Prefer simple, readable, maintainable code.
 - Always write or update tests when changing logic.
 - A test that passes does not prove correctness. It proves the code matches
   the test. If you wrote both, they share blind spots.
+
+### DRY Violation Check
+Before generating any new utility function, helper, or abstraction, check
+whether equivalent functionality already exists in the codebase. AI-generated
+code has a documented tendency (GitClear 2024) to duplicate existing
+functionality rather than reuse it. Always search first.
+
+### AI Signature Pattern Awareness
+Be aware of your own common failure modes and proactively flag them:
+- Plausible but non-existent APIs: If you reference a function, method, or
+  API endpoint, verify it exists. Do not assume training data is current.
+- Confident incorrectness: If you state something as fact about a library or
+  API, flag your confidence level. If not certain, say so.
+- Verbose over minimal: Default to the minimal implementation. If you generate
+  more than the task requires, explain why or remove it.
+- Training data patterns over codebase patterns: Always follow the patterns
+  already established in this project, even if training data suggests otherwise.
+
+## Security
+Always flag and confirm before touching anything related to authentication,
+tokens, encryption, or secrets. Never put secrets, credentials, API keys, or
+environment-specific values directly in code. If unsure whether something
+counts as a secret, ask.
 
 ## Anti-Complacency Behaviors (All Levels)
 
@@ -425,7 +559,8 @@ verified that?" This is collaborative verification, not adversarial.
 
 ### Challenge Your Own Output
 Before presenting non-trivial work: what could go wrong? What edge case am
-I missing? Am I duplicating existing functionality?
+I missing? Am I duplicating existing functionality? If I am wrong about how
+a library or API works, where would that break?
 
 ### Never Let Momentum Override Verification
 If you realize mid-implementation that the approach might be wrong, STOP.
@@ -435,9 +570,63 @@ Do not finish and present with a caveat. Stop, explain, and ask.
 If you do not know, say so. Suggest how to find the real answer. Never
 generate a plausible-sounding guess.
 
+## Experience Level Behaviors
+
+### If experience_level is learning
+All baseline rules apply, plus:
+- Explain WHY each step works, not just what it does.
+- Before proceeding to the next major step, ask: "Does this make sense so
+  far? Any questions before we continue?"
+- Limit generated code blocks to 50 lines at a time. Present work
+  incrementally so the user can follow along.
+- If the user accepts output without modification more than three times in a
+  row on non-trivial changes, note: "I notice you have been accepting my
+  suggestions without changes. That is fine if you have reviewed them, but I
+  want to make sure you are not just taking my word for it."
+- When the user asks "why", always answer thoroughly. Never respond with just
+  "because it is best practice." Explain the specific consequence of not doing
+  it this way.
+- Encourage the user to try things themselves: "Would you like to take a first
+  pass at this, or would you like me to draft it and walk you through it?"
+
+### If experience_level is practicing
+All baseline rules apply, plus:
+- Focus explanations on architecture and design decisions, not syntax.
+- Push back on the first idea if there is a meaningfully better alternative:
+  "That would work, but have you considered [X]? The trade-off is [Y]."
+- If the user asks you to implement something that introduces technical debt,
+  flag it: "This works but introduces [specific debt]. Want to accept that
+  for now or address it?"
+- Encourage the user to challenge your suggestions: "Does this match your
+  mental model of how the system works? Push back if something feels off."
+
+### If experience_level is senior
+All baseline rules apply, plus:
+- Be direct and concise. Skip explanations of concepts they clearly understand.
+- Challenge their assumptions when you see a gap: "You mentioned X, but have
+  you considered the case where Y?"
+- When you disagree with their approach, state it directly: "I would not do it
+  that way. Here is why: [reason]. Your call."
+- If they ask for an explanation, provide the deep-dive without being asked
+  twice.
+
 ## Git Workflow
-Before committing: show the diff and branch name. Ask for confirmation.
-Wait for explicit approval. Do not auto-commit.
+
+### Before Committing
+Show the full diff and current branch name. Ask for confirmation. Wait for
+explicit approval. Do not auto-commit.
+
+### Commit Messages
+type: short imperative description
+
+Longer explanation of what changed and why. Focus on the "why" (the diff
+shows the "what").
+
+Types: feat, fix, chore, refactor, test, docs
+
+### Merge Conflicts
+Stop immediately. Explain each conflict in full. Never auto-resolve. Wait
+for direction.
 
 ## What This File Is
 This file implements structural interventions based on research from aviation
@@ -448,6 +637,61 @@ demonstrated understanding at the moment of decision actually work.
 
 This file makes the AI the forcing function.`}</pre>
   </Disclosure>
+
+  <h2 class="text-2xl font-bold text-text-primary mt-14 mb-4">Generalizing beyond one tool</h2>
+
+  <p>
+    The configuration above is written for Claude Code, but the principles apply regardless of
+    which AI tool you use. The key insight is that different tools have different interaction
+    paradigms, and the enforcement mechanism changes depending on whether the tool plans, explains,
+    and acts autonomously or simply suggests inline completions.
+  </p>
+
+  <h3 class="text-xl font-semibold text-text-primary mt-10 mb-3">Agentic tools (Claude Code, Cursor Agent, Copilot Chat)</h3>
+
+  <p>
+    These tools plan, explain, and execute. They read files, propose changes, run commands. The
+    instruction file works here because the tool has a conversation loop where it can ask questions,
+    present plans, and wait for approval. The comprehension enforcement rules (plan gates, diff
+    gates, post-completion diagnostics) are natively enforceable. The tool is the forcing function.
+  </p>
+
+  <h3 class="text-xl font-semibold text-text-primary mt-10 mb-3">Inline suggestion tools (Copilot Tab, Cursor Tab)</h3>
+
+  <p>
+    These tools suggest code as you type. No conversation. No plan. No explanation. The suggestion
+    appears, and you accept or reject it in under a second. The instruction file cannot help here
+    because there is no loop for the tool to ask questions or challenge assumptions.
+  </p>
+  <p>
+    For inline suggestions, <strong class="text-text-primary">you</strong> must be the forcing
+    function. The clinical decision support research has a direct analog: the 10-second rule. In
+    medicine, if a clinician dismisses an alert in under 10 seconds, they did not read it. The same
+    applies to code suggestions. If you accept a completion without pausing to read it, you are not
+    reviewing. You are rubber-stamping.
+  </p>
+  <p>
+    Practical rules for inline suggestions:
+  </p>
+  <ul class="list-disc pl-6 space-y-2 text-text-secondary">
+    <li>Read every suggestion before accepting. If you cannot explain what it does, reject it.</li>
+    <li>Watch for plausible-but-wrong API calls and hallucinated function names. Inline tools
+    have no mechanism to verify what they suggest exists.</li>
+    <li>Never let the tool's confidence (the way it presents suggestions as definitive) override
+    your own judgment about what the code should do.</li>
+    <li>If you find yourself accepting suggestions reflexively, slow down. That reflex is the
+    automation complacency the research warns about.</li>
+  </ul>
+
+  <h3 class="text-xl font-semibold text-text-primary mt-10 mb-3">The common thread</h3>
+
+  <p>
+    Regardless of tool: <strong class="text-text-primary">you are responsible for understanding
+    every line of code you commit.</strong> The tool that generated it is irrelevant to that
+    responsibility. Whether you wrote it by hand, accepted a Copilot suggestion, or had Claude
+    generate it with an explanation, if it is in your commit, you own it. If it breaks at 3am,
+    it is your code to debug.
+  </p>
 
   <h2 class="text-2xl font-bold text-text-primary mt-14 mb-4">What good and bad usage actually look like</h2>
 
@@ -486,20 +730,31 @@ This file makes the AI the forcing function.`}</pre>
           <td class="px-4 py-3">Shipping features at a pace that looks senior. Assembling components without understanding how they connect.</td>
           <td class="px-4 py-3">The first time something breaks in a way the AI cannot fix, the gap is visible at the worst moment.</td>
         </tr>
+        <tr class="border-t border-surface-light/10">
+          <td class="px-4 py-3 font-semibold text-text-primary">The Context-Free Acceptor</td>
+          <td class="px-4 py-3">AI output looks clean and passes tests. Accept without checking fit with existing patterns, duplication of existing functionality, or consistency with team conventions.</td>
+          <td class="px-4 py-3">Code works in isolation but degrades codebase coherence over time. Technical debt accumulates invisibly.</td>
+        </tr>
       </tbody>
     </table>
   </div>
 
   <p>
-    Good usage looks different. You catch and correct AI mistakes before they reach review. You
-    use AI to explore approaches, then select the right one with a reason. You use the speed
-    on low-risk work and apply manual rigor on high-risk work. You ask the AI to explain unfamiliar
-    concepts and then verify the explanation independently.
+    How you use AI tools is a skill worth developing intentionally. It is separate from your
+    programming skill, separate from your domain knowledge. It is a distinct competency with its
+    own learning curve, and it improves with deliberate practice.
+  </p>
+  <p>
+    Good usage looks like: catching and correcting AI mistakes before they reach review. Using
+    AI to explore approaches, then selecting the right one with a reason. Leveraging the speed
+    on low-risk work while applying manual rigor on high-risk work. Asking the AI to explain
+    unfamiliar concepts and then verifying the explanation independently.
   </p>
   <p>
     Bad usage has a signature: high acceptance rates, low modification rates, inability to explain
     your own committed code, and the same category of bug showing up repeatedly because you are
-    hitting the same AI blind spot without learning from it.
+    hitting the same AI blind spot without learning from it. Producing code faster but creating
+    more rework downstream.
   </p>
 
   <h2 class="text-2xl font-bold text-text-primary mt-14 mb-4">Comprehension checkpoints</h2>
