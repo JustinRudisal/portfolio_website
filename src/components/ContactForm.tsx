@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import { Turnstile } from 'react-turnstile';
 
@@ -37,10 +37,33 @@ const ContactForm = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [showTurnstile, setShowTurnstile] = useState(false);
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const turnstileRef = useRef<any>(null);
+  const formContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = formContainerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          observer.disconnect();
+          const show = () => setShowTurnstile(true);
+          if ('requestIdleCallback' in window) {
+            (window as any).requestIdleCallback(show, { timeout: 3000 });
+          } else {
+            setTimeout(show, 100);
+          }
+        }
+      },
+      { rootMargin: '200px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const handleTurnstileVerify = useCallback((token: string) => {
     setTurnstileToken(token);
@@ -261,14 +284,16 @@ const ContactForm = () => {
         )}
       </div>
 
-      <div className="mb-6">
-        <Turnstile
-          ref={turnstileRef}
-          sitekey={TURNSTILE_SITE_KEY}
-          onVerify={handleTurnstileVerify}
-          onExpire={handleTurnstileExpire}
-          theme="dark"
-        />
+      <div className="mb-6" ref={formContainerRef}>
+        {showTurnstile && (
+          <Turnstile
+            ref={turnstileRef}
+            sitekey={TURNSTILE_SITE_KEY}
+            onVerify={handleTurnstileVerify}
+            onExpire={handleTurnstileExpire}
+            theme="dark"
+          />
+        )}
       </div>
 
       <button
