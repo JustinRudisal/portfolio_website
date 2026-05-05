@@ -13,6 +13,8 @@ export function GET(context: APIContext) {
     title: 'Justin Rudisal',
     description: 'Thoughts on software engineering, AI, security, and the trends shaping our industry.',
     site: context.site!,
+    xmlns: { atom: 'http://www.w3.org/2005/Atom' },
+    customData: `<atom:link href="${context.site}rss.xml" rel="self" type="application/rss+xml" />`,
     items: posts.map((post: any) => ({
       title: post.title,
       pubDate: new Date(post.date + 'T00:00:00'),
